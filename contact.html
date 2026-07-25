@@ -7,6 +7,8 @@
 <meta name="description" content="Schedule a consultation with ZentiqOne to discuss payment platform development, banking solutions, integrations, or managed technology services.">
 <link rel="canonical" href="https://www.zentiqone.com/contact.html">
 <meta name="robots" content="index, follow">
+<meta name="keywords" content="Banking Solutions, Payment Solutions, Payment Orchestration, Payment Aggregator, Digital Banking, FinTech Consulting, API Banking, UPI, AEPS, BBPS, Payment Gateway, Banking Technology, Banking Transformation">
+<meta name="author" content="RazorSharpFocus">
 <meta property="og:title" content="Contact | ZentiqOne">
 <meta property="og:description" content="Schedule a consultation with ZentiqOne to discuss payment platform development, banking solutions, integrations, or managed technology services.">
 <meta property="og:type" content="website">
@@ -73,7 +75,7 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / Contact</nav>
       <h1>Schedule a Consultation</h1>
-      <p class="lead">Tell ZentiqOne about your project and we'll help you map the right services to your goals.</p>
+      <p class="lead">Tell us about your business requirements, and our Banking, Payments & FinTech experts will connect with you to discuss the right solution for your organization.</p>
     </div>
   </section>
 
@@ -82,27 +84,141 @@
       <div class="two-col">
         <div>
           <form class="form-grid" id="contactForm">
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+  <label for="website">Leave this field empty</label>
+  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+</div>
+            <div style="position:absolute; left:-9999px;" aria-hidden="true">
+  <label for="website">Leave this field empty</label>
+  <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+</div>
             <div>
-              <label for="name">Name</label>
+              <label for="name">Full Name *</label>
               <input type="text" id="name" name="name" required>
             </div>
             <div>
-              <label for="Platform">Platform</label>
-              <input type="text" id="Platform" name="platform">
+              <label for="company">Company / Organization *</label>
+              <input type="text" id="company" name="company" required>
             </div>
             <div>
-              <label for="email">Email</label>
+              <label for="designation">Designation *</label>
+              <input type="text" id="designation" name="designation" required>
+            </div>
+            <div>
+              <label for="email">Business Email *</label>
               <input type="email" id="email" name="email" required>
+              <span class="field-error" id="emailError" style="color:#d33; font-size:0.85em; display:none;"></span>
             </div>
             <div>
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone">
+              <label for="phone">Mobile Number *</label>
+              <div style="display:flex; gap:8px;">
+                <select id="countryCode" name="countryCode" style="flex:0 0 auto;" required>
+                  <option value="+91" selected>🇮🇳 +91 (India)</option>
+                  <option value="+1">🇺🇸 +1 (USA/Canada)</option>
+                  <option value="+44">🇬🇧 +44 (UK)</option>
+                  <option value="+971">🇦🇪 +971 (UAE)</option>
+                  <option value="+65">🇸🇬 +65 (Singapore)</option>
+                  <option value="+61">🇦🇺 +61 (Australia)</option>
+                  <option value="+49">🇩🇪 +49 (Germany)</option>
+                  <option value="+81">🇯🇵 +81 (Japan)</option>
+                  <option value="+other">Other</option>
+                </select>
+                <input type="tel" id="phone" name="phone" placeholder="10-digit number" required style="flex:1;">
+              </div>
+              <span class="field-error" id="phoneError" style="color:#d33; font-size:0.85em; display:none;"></span>
             </div>
             <div>
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
+              <label for="industry">Industry *</label>
+              <select id="industry" name="industry" required>
+                <option value="">Select industry</option>
+                <option>Bank</option>
+                <option>Cooperative Bank</option>
+                <option>NBFC</option>
+                <option>FinTech</option>
+                <option>Insurance</option>
+                <option>Government</option>
+                <option>Enterprise</option>
+                <option>Education</option>
+                <option>Healthcare</option>
+                <option>Retail</option>
+                <option>Logistics</option>
+                <option>Manufacturing</option>
+                <option>Other</option>
+              </select>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div>
+              <label>Services Interested In *</label>
+              <div class="checkbox-group">
+                <label><input type="checkbox" name="services" value="Banking Consulting"> Banking Consulting</label>
+                <label><input type="checkbox" name="services" value="Digital Banking Transformation"> Digital Banking Transformation</label>
+                <label><input type="checkbox" name="services" value="Payment Orchestration"> Payment Orchestration</label>
+                <label><input type="checkbox" name="services" value="Payment Gateway"> Payment Gateway</label>
+                <label><input type="checkbox" name="services" value="UPI Solutions"> UPI Solutions</label>
+                <label><input type="checkbox" name="services" value="BBPS"> BBPS</label>
+                <label><input type="checkbox" name="services" value="Merchant Acquiring"> Merchant Acquiring</label>
+                <label><input type="checkbox" name="services" value="Payout Solutions"> Payout Solutions</label>
+                <label><input type="checkbox" name="services" value="API Banking"> API Banking</label>
+                <label><input type="checkbox" name="services" value="Open Banking"> Open Banking</label>
+                <label><input type="checkbox" name="services" value="Core Banking Integration"> Core Banking Integration</label>
+                <label><input type="checkbox" name="services" value="Lending Solutions"> Lending Solutions</label>
+                <label><input type="checkbox" name="services" value="Reconciliation & Settlement"> Reconciliation & Settlement</label>
+                <label><input type="checkbox" name="services" value="Enterprise Integration"> Enterprise Integration</label>
+                <label><input type="checkbox" name="services" value="AI & Automation"> AI & Automation</label>
+                <label><input type="checkbox" name="services" value="Cloud Migration"> Cloud Migration</label>
+                <label><input type="checkbox" name="services" value="Managed Services"> Managed Services</label>
+                <label><input type="checkbox" name="services" value="Compliance & Security"> Compliance & Security</label>
+                <label><input type="checkbox" name="services" value="Other"> Other</label>
+              </div>
+            </div>
+            <div>
+              <label for="message">Project Description *</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Briefly describe your project requirements, business challenges, or objectives."></textarea>
+            </div>
+            <div>
+              <label for="projectStage">Project Stage</label>
+              <select id="projectStage" name="projectStage">
+                <option value="">Select stage</option>
+                <option>Exploring</option>
+                <option>Planning</option>
+                <option>Vendor Evaluation</option>
+                <option>Ready to Start</option>
+                <option>Existing Project Enhancement</option>
+                <option>Support Required</option>
+              </select>
+            </div>
+            <div>
+              <label for="timeline">Expected Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select timeline</option>
+                <option>Immediate</option>
+                <option>Within 1 Month</option>
+                <option>1–3 Months</option>
+                <option>3–6 Months</option>
+                <option>6+ Months</option>
+              </select>
+            </div>
+            <div>
+              <label>Preferred Contact Method</label>
+              <div class="checkbox-group">
+                <label><input type="radio" name="contactMethod" value="Email" checked> Email</label>
+                <label><input type="radio" name="contactMethod" value="Phone Call"> Phone Call</label>
+                <label><input type="radio" name="contactMethod" value="Microsoft Teams"> Microsoft Teams</label>
+                <label><input type="radio" name="contactMethod" value="Google Meet"> Google Meet</label>
+                <label><input type="radio" name="contactMethod" value="WhatsApp"> WhatsApp</label>
+              </div>
+            </div>
+            <div>
+              <label for="meetingDate">Preferred Meeting Date</label>
+              <input type="date" id="meetingDate" name="meetingDate">
+            </div>
+            <div>
+              <label for="meetingTime">Preferred Meeting Time</label>
+              <input type="time" id="meetingTime" name="meetingTime">
+            </div>
+            <div>
+              <label><input type="checkbox" id="consent" name="consent" required> I agree to be contacted by ZentiqOne regarding my enquiry. *</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Schedule My Consultation</button>
           </form>
         </div>
         <div>
@@ -156,34 +272,87 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <!--<div class="footer-col">
-        <h3>Contact</h3>
-        <ul>
-          <li><a href="mailto:zentiqone@gmail.com">zentiqone@gmail.com</a></li>
-          <li>+91 00000 00000</li>
-          <li>India</li>
-        </ul>
-      </div>-->
     </div>
     <div class="container footer-bottom">
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
+  <script src="assets/script.js"></script>
   <script>
+function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function validatePhone(phone) {
+  return /^[6-9]\d{9}$/.test(phone.replace(/\D/g, '').slice(-10));
+}
+
+function showFieldError(inputEl, errorEl, msg) {
+  errorEl.textContent = msg;
+  errorEl.style.display = 'block';
+  inputEl.style.borderColor = '#d33';
+}
+
+function clearFieldError(inputEl, errorEl) {
+  errorEl.style.display = 'none';
+  inputEl.style.borderColor = '';
+}
+
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const form = e.target;
   const submitBtn = form.querySelector('button[type="submit"]');
   const originalText = submitBtn.textContent;
+
+  let valid = true;
+  const emailInput = form.email;
+  const emailError = document.getElementById('emailError');
+  const phoneInput = form.phone;
+  const phoneError = document.getElementById('phoneError');
+
+  clearFieldError(emailInput, emailError);
+  clearFieldError(phoneInput, phoneError);
+
+  if (!validateEmail(emailInput.value.trim())) {
+    showFieldError(emailInput, emailError, 'Please enter a valid email address.');
+    valid = false;
+  }
+
+  const countryCode = form.countryCode.value;
+  if (countryCode === '+91' && !validatePhone(phoneInput.value.trim())) {
+    showFieldError(phoneInput, phoneError, 'Please enter a valid 10-digit mobile number.');
+    valid = false;
+  } else if (phoneInput.value.trim().replace(/\D/g, '').length < 6) {
+    showFieldError(phoneInput, phoneError, 'Please enter a valid mobile number.');
+    valid = false;
+  }
+
+  if (!valid) return;
+
   submitBtn.disabled = true;
   submitBtn.textContent = 'Sending...';
 
+  const services = Array.from(form.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value);
   const data = {
     name: form.name.value,
-    platform: form.platform.value,
+    company: form.company.value,
+    designation: form.designation.value,
     email: form.email.value,
-    phone: form.phone.value,
-    message: form.message.value
+    phone: `${form.countryCode.value} ${form.phone.value}`,
+    industry: form.industry.value,
+    services: services,
+    message: form.message.value,
+    projectStage: form.projectStage.value,
+    timeline: form.timeline.value,
+    contactMethod: form.contactMethod.value,
+    meetingDate: form.meetingDate.value,
+    meetingTime: form.meetingTime.value,
+    consent: form.consent.checked,
+    landingPageUrl: window.location.href,
+    referrerUrl: document.referrer || 'Direct',
+    submittedAt: new Date().toISOString(),
+    website: form.website.value,
+    userAgent: navigator.userAgent
   };
 
   try {
@@ -196,9 +365,10 @@ document.getElementById('contactForm').addEventListener('submit', async function
     if (!res.ok) throw new Error('Request failed');
 
     form.style.display = 'none';
+    form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
     const thankYou = document.createElement('div');
     thankYou.className = 'card';
-    thankYou.innerHTML = '<h3>Thank you!</h3><p>We\'ve received your details and will get in touch shortly.</p>';
+    thankYou.innerHTML = '<h3>Thank you for contacting ZentiqOne.</h3><p>Our consulting team has received your enquiry and will contact you shortly.</p><p>A confirmation email has also been sent to your registered email address.</p>';
     form.parentNode.appendChild(thankYou);
   } catch (err) {
     submitBtn.disabled = false;
@@ -207,6 +377,5 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 });
 </script>
-  <script src="assets/script.js"></script>
 </body>
 </html>
