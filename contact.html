@@ -81,8 +81,7 @@
     <div class="container">
       <div class="two-col">
         <div>
-          <!-- TODO: wire this form to a backend/email service before going live -->
-          <form class="form-grid" action="/api/contact" method="post">
+          <form class="form-grid" id="contactForm">
             <div>
               <label for="name">Name</label>
               <input type="text" id="name" name="name" required>
@@ -170,6 +169,44 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
+  <script>
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  const data = {
+    name: form.name.value,
+    platform: form.platform.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    message: form.message.value
+  };
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) throw new Error('Request failed');
+
+    form.style.display = 'none';
+    const thankYou = document.createElement('div');
+    thankYou.className = 'card';
+    thankYou.innerHTML = '<h3>Thank you!</h3><p>We\'ve received your details and will get in touch shortly.</p>';
+    form.parentNode.appendChild(thankYou);
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+    alert('Something went wrong. Please try again or email us directly at zentiqone@gmail.com.');
+  }
+});
+</script>
   <script src="assets/script.js"></script>
 </body>
 </html>
