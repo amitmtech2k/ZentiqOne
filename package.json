@@ -1,7 +1,6 @@
 {
   "name": "zentiqone",
   "version": "1.0.0",
-  "type":"module",
   "description": "This is for managing the ZentiqOne project related activities",
   "main": "index.js",
   "scripts": {
