@@ -1,0 +1,23 @@
+{
+  "name": "zentiqone",
+  "version": "1.0.0",
+  "description": "This is for managing the ZentiqOne project related activities",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amitmtech2k/ZentiqOne.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amitmtech2k/ZentiqOne/issues"
+  },
+  "homepage": "https://github.com/amitmtech2k/ZentiqOne#readme",
+  "dependencies": {
+    "@getbrevo/brevo": "^6.0.2"
+  }
+}
