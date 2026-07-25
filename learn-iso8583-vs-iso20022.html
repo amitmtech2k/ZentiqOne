@@ -98,7 +98,9 @@
 <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Primary">
-      <a href="index.html" class="logo">ZentiqOne</a>
+      <a href="index.html" class="logo">
+  <img src="assets/logo.png" alt="ZentiqOne" style="height: 40px; width: auto;">
+</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
@@ -122,7 +124,7 @@
       <span class="topic-tag">Technology</span>
       <h1>ISO 8583 vs. ISO 20022: Payment Messaging Standards Explained</h1>
       <div class="article-meta"><span>ZentiqOne Learn</span><span>&middot;</span><span>~6 min read</span><span>&middot;</span><span>Updated 23 July 2026</span></div>
-      <p class="lead">ISO 8583 and ISO 20022 are the two messaging standards that let banks, card networks, and payment processors describe a transaction in a common structured format. ISO 8583 is the older, binary, field-based standard that still underpins most card and ATM transactions worldwide. ISO 20022 is the newer, XML/JSON-friendly standard carrying richer data, increasingly used for real-time and cross-border payments — and most infrastructure today has to speak both.</p>
+      <p class="lead">ISO 8583 and ISO 20022 are the two messaging standards that let banks, card networks, and payment processors describe a transaction in a common structured format. ISO 8583 is the older, binary, field-based standard that still underpins most card and ATM transactions worldwide. ISO 20022 is the newer, XML/JSON-friendly standard carrying richer data, increasingly used for real-time and cross-border payments - and most infrastructure today has to speak both.</p>
     </div>
   </section>
 
@@ -130,16 +132,16 @@
     <div class="container prose">
 
       <h2>What Is a Payment Messaging Standard, and Why Does It Matter?</h2>
-      <p>Every time a card is swiped, a UPI transaction is initiated, or a bank sends money to another bank, systems that have never directly dealt with each other need to exchange information about that transaction in a way both sides understand. A payment messaging standard is the agreed structure — the common language — that defines exactly what a transaction message should contain and how each piece of information is represented.</p>
+      <p>Every time a card is swiped, a UPI transaction is initiated, or a bank sends money to another bank, systems that have never directly dealt with each other need to exchange information about that transaction in a way both sides understand. A payment messaging standard is the agreed structure - the common language - that defines exactly what a transaction message should contain and how each piece of information is represented.</p>
       <p>Without a shared standard, every bank, network, and processor would need custom, one-off integrations with every other party it connects to. Standards like ISO 8583 and ISO 20022 exist precisely to avoid that: they let a card network, an acquiring bank, an issuing bank, and a switch all interpret the same message the same way, regardless of who built each individual system.</p>
 
       <h2>ISO 8583: The Standard Behind Card and ATM Transactions</h2>
-      <p>ISO 8583 is a message format standard first published in the 1980s and still in daily use across card processing, ATM networks, POS terminals, and switch-to-switch messaging worldwide. It structures a transaction as a set of numbered fields — things like the primary account number, transaction amount, and response code — combined with a bitmap that indicates which fields are present in a given message.</p>
+      <p>ISO 8583 is a message format standard first published in the 1980s and still in daily use across card processing, ATM networks, POS terminals, and switch-to-switch messaging worldwide. It structures a transaction as a set of numbered fields - things like the primary account number, transaction amount, and response code - combined with a bitmap that indicates which fields are present in a given message.</p>
       <p>Because it is compact and was designed for the processing constraints of earlier decades, ISO 8583 is efficient to transmit and has been implemented, tested, and hardened across four decades of production card infrastructure. That maturity is exactly why it remains dominant in card authorization and switching today, even as newer standards have taken hold elsewhere in payments.</p>
-      <p>Its main limitation is rigidity: fields are numbered and positional rather than self-describing, field lengths and formats are fixed by convention, and adding genuinely new data — say, richer remittance information or structured party details — usually means bespoke, vendor-specific extensions rather than a standard, portable way to carry that data.</p>
+      <p>Its main limitation is rigidity: fields are numbered and positional rather than self-describing, field lengths and formats are fixed by convention, and adding genuinely new data - say, richer remittance information or structured party details - usually means bespoke, vendor-specific extensions rather than a standard, portable way to carry that data.</p>
 
       <h2>ISO 20022: The Modern, Data-Rich Standard</h2>
-      <p>ISO 20022 is a more recent messaging standard built around structured, self-describing data — typically represented in XML, with JSON representations increasingly available too. Rather than numbered fields and bitmaps, a message is built from a defined data dictionary of business elements, such as party names, structured addresses, purpose codes, and remittance details, that are explicit and labeled.</p>
+      <p>ISO 20022 is a more recent messaging standard built around structured, self-describing data - typically represented in XML, with JSON representations increasingly available too. Rather than numbered fields and bitmaps, a message is built from a defined data dictionary of business elements, such as party names, structured addresses, purpose codes, and remittance details, that are explicit and labeled.</p>
       <p>This richer structure is a major reason ISO 20022 has been adopted for many real-time payment systems and is at the center of major global migrations, including SWIFT's own move toward ISO 20022 for cross-border payment messaging, since it can carry far more context about a payment than legacy formats typically allow.</p>
       <p>Because ISO 20022 messages are self-describing and validated against formal schemas, they also tend to be easier to parse, validate, and extend over time compared with a fixed-field, positional format.</p>
 
@@ -183,11 +185,11 @@
       </table>
 
       <h2>Why This Matters for Banks and PSPs Modernizing Infrastructure</h2>
-      <p>For banks and PSPs, the choice is not philosophical, it is operational. Card schemes and ATM networks generally still expect ISO 8583 today, so any institution processing card transactions needs that capability regardless of its broader modernization plans. At the same time, newer real-time payment rails, cross-border initiatives, and data-hungry use cases — like richer fraud screening or automated reconciliation — increasingly expect ISO 20022's structured data. Modernization, in practice, means building infrastructure that can speak both fluently rather than betting entirely on one.</p>
+      <p>For banks and PSPs, the choice is not philosophical, it is operational. Card schemes and ATM networks generally still expect ISO 8583 today, so any institution processing card transactions needs that capability regardless of its broader modernization plans. At the same time, newer real-time payment rails, cross-border initiatives, and data-hungry use cases - like richer fraud screening or automated reconciliation - increasingly expect ISO 20022's structured data. Modernization, in practice, means building infrastructure that can speak both fluently rather than betting entirely on one.</p>
 
       <h2>The Practical Reality: Most Systems Must Support Both</h2>
       <p>Very few institutions get to pick a single standard and walk away from the other. Card processing obligations keep ISO 8583 in daily production use, while participation in modern real-time and cross-border rails increasingly requires ISO 20022 support. The realistic architecture for most banks and PSPs is translation and coexistence: mapping data between the two formats, running both message types through the same core systems, and maintaining that dual capability for a long transition period.</p>
-      <p>This is one of the more overlooked engineering challenges in payments infrastructure — not choosing a standard, but building and maintaining the translation layers, field mappings, and validation logic that let both standards coexist reliably.</p>
+      <p>This is one of the more overlooked engineering challenges in payments infrastructure - not choosing a standard, but building and maintaining the translation layers, field mappings, and validation logic that let both standards coexist reliably.</p>
 
       <div class="callout">
         <p><strong>A note on timelines.</strong> Specific migration deadlines, mandated formats, and network-by-network requirements change and vary by card scheme, market infrastructure, and geography. Treat this article as conceptual background, and confirm current requirements directly with the relevant card network, bank, or standards body before planning a migration.</p>
@@ -237,7 +239,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <div class="logo">ZentiqOne</div>
+        <img src="assets/logo.png" alt="ZentiqOne" style="height: 30px; width: auto;">
         <p class="footer-tagline">We engineer payment ecosystems.</p>
         <p>ZentiqOne is a Banking &amp; Payment Technology Engineering Platform helping Banks, FinTechs, NBFCs, Payment Aggregators, Payment Gateways, and Enterprises design, build, integrate, launch, and scale digital payment and banking solutions.</p>
       </div>

@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment Gateway vs. Payment Aggregator: What's the Difference? | ZentiqOne</title>
-<meta name="description" content="A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator — what each does, who holds funds, and how Indian regulation treats them.">
+<meta name="description" content="A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator - what each does, who holds funds, and how Indian regulation treats them.">
 <link rel="canonical" href="https://www.zentiqone.com/learn-payment-gateway-vs-aggregator.html">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Payment Gateway vs. Payment Aggregator: What's the Difference? | ZentiqOne">
-<meta property="og:description" content="A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator — what each does, who holds funds, and how Indian regulation treats them.">
+<meta property="og:description" content="A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator - what each does, who holds funds, and how Indian regulation treats them.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.zentiqone.com/learn-payment-gateway-vs-aggregator.html">
 <meta property="og:site_name" content="ZentiqOne">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Payment Gateway vs. Payment Aggregator: What's the Difference? | ZentiqOne">
-<meta name="twitter:description" content="A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator — what each does, who holds funds, and how Indian regulation treats them.">
+<meta name="twitter:description" content="A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator - what each does, who holds funds, and how Indian regulation treats them.">
 <link rel="stylesheet" href="assets/styles.css?v=1.1">
 <script type="application/ld+json">
 {
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": "Payment Gateway vs. Payment Aggregator: What's the Difference?",
-  "description": "A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator — what each does, who holds funds, and how Indian regulation treats them.",
+  "description": "A clear, practical explanation of the difference between a Payment Gateway and a Payment Aggregator - what each does, who holds funds, and how Indian regulation treats them.",
   "author": { "@type": "Organization", "name": "ZentiqOne" },
   "publisher": {
     "@type": "Organization",
@@ -71,7 +71,7 @@
       "name": "Can a single Platform be both a Payment Gateway and a Payment Aggregator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Many payment companies combine both functions — offering the transaction-processing technology of a gateway alongside the merchant onboarding and fund-holding functions of an aggregator. In India, the fund-holding part of that combined business is generally the part subject to Payment Aggregator regulation."
+        "text": "Yes. Many payment companies combine both functions - offering the transaction-processing technology of a gateway alongside the merchant onboarding and fund-holding functions of an aggregator. In India, the fund-holding part of that combined business is generally the part subject to Payment Aggregator regulation."
       }
     },
     {
@@ -98,7 +98,9 @@
 <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="navbar" aria-label="Primary">
-      <a href="index.html" class="logo">ZentiqOne</a>
+      <a href="index.html" class="logo">
+  <img src="assets/logo.png" alt="ZentiqOne" style="height: 40px; width: auto;">
+</a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
@@ -130,12 +132,12 @@
     <div class="container prose">
 
       <h2>What Is a Payment Gateway?</h2>
-      <p>A Payment Gateway is, at its core, a technical component. When a customer enters card details, chooses UPI, or selects net banking at checkout, the gateway is the system that captures that payment instruction, encrypts it, and routes it onward — typically to an acquiring bank or a card network — for authorization.</p>
-      <p>A gateway's job ends once it has reliably done three things: authorized the transaction with the appropriate bank or network, encrypted sensitive data in transit so it is never exposed in plain text, and returned a success or failure response to the merchant's checkout flow in near real time. A standalone gateway does not, by itself, need to hold a merchant's money — it typically sits on top of a merchant account that the merchant already has with an acquiring bank.</p>
-      <p>Because a gateway is fundamentally a piece of transaction-processing infrastructure, it has historically been treated as a technology provider rather than as a separately licensed financial entity — though the exact regulatory line depends on whether the same Platform also performs aggregator-like functions, discussed below.</p>
+      <p>A Payment Gateway is, at its core, a technical component. When a customer enters card details, chooses UPI, or selects net banking at checkout, the gateway is the system that captures that payment instruction, encrypts it, and routes it onward - typically to an acquiring bank or a card network - for authorization.</p>
+      <p>A gateway's job ends once it has reliably done three things: authorized the transaction with the appropriate bank or network, encrypted sensitive data in transit so it is never exposed in plain text, and returned a success or failure response to the merchant's checkout flow in near real time. A standalone gateway does not, by itself, need to hold a merchant's money - it typically sits on top of a merchant account that the merchant already has with an acquiring bank.</p>
+      <p>Because a gateway is fundamentally a piece of transaction-processing infrastructure, it has historically been treated as a technology provider rather than as a separately licensed financial entity - though the exact regulatory line depends on whether the same Platform also performs aggregator-like functions, discussed below.</p>
 
       <h2>What Is a Payment Aggregator?</h2>
-      <p>A Payment Aggregator (PA) is a different kind of business. Rather than simply routing a transaction, a PA onboards multiple merchants under its own umbrella arrangement with banks, collects payments on their behalf, and briefly holds those funds — typically in a nodal or escrow account — before settling the net amount to each merchant's bank account.</p>
+      <p>A Payment Aggregator (PA) is a different kind of business. Rather than simply routing a transaction, a PA onboards multiple merchants under its own umbrella arrangement with banks, collects payments on their behalf, and briefly holds those funds - typically in a nodal or escrow account - before settling the net amount to each merchant's bank account.</p>
       <p>This fund-holding role is precisely why Payment Aggregators are regulated by the Reserve Bank of India (RBI) as a distinct category, separate from pure technology providers. A PA's ability to hold merchant funds, even briefly, is treated as a financial activity that warrants direct regulatory oversight, authorization, and ongoing compliance obligations.</p>
       <p>For merchants, the practical benefit of the aggregator model is simplified onboarding: instead of negotiating a direct merchant account with an acquiring bank, a business can sign up with an aggregator and start accepting payments under the aggregator's existing banking and network relationships.</p>
 
@@ -183,9 +185,9 @@
       <ul>
         <li><strong>Large enterprises with existing banking relationships</strong> may only need a gateway integration layered on top of merchant accounts they already hold with one or more acquiring banks.</li>
         <li><strong>Small and medium merchants, startups, and new online sellers</strong> usually find the aggregator model simpler, since it bundles onboarding, KYC, and settlement into a single relationship rather than requiring a separate bank tie-up.</li>
-        <li><strong>Marketplaces and platforms with sub-merchants</strong> — businesses that collect payments on behalf of many smaller sellers — typically need aggregator-like fund-holding and split-settlement capability, since a simple gateway is not designed to hold or redistribute funds across sub-merchants.</li>
+        <li><strong>Marketplaces and platforms with sub-merchants</strong> - businesses that collect payments on behalf of many smaller sellers - typically need aggregator-like fund-holding and split-settlement capability, since a simple gateway is not designed to hold or redistribute funds across sub-merchants.</li>
       </ul>
-      <p>In practice, many payment products marketed as "payment gateways" in India are commercially bundled with aggregator functionality, since most merchants want a single sign-up rather than separately arranging technology and banking relationships. Understanding the underlying distinction still matters — it shapes onboarding timelines, contractual relationships, and where regulatory obligations sit.</p>
+      <p>In practice, many payment products marketed as "payment gateways" in India are commercially bundled with aggregator functionality, since most merchants want a single sign-up rather than separately arranging technology and banking relationships. Understanding the underlying distinction still matters - it shapes onboarding timelines, contractual relationships, and where regulatory obligations sit.</p>
 
       <div class="callout">
         <p><strong>A note on regulation.</strong> This article is general education, not legal or compliance advice. RBI guidelines for Payment Aggregators and Payment Gateways have evolved over time and continue to be refined. Always confirm current requirements with qualified legal counsel and the latest RBI circulars before making licensing or structuring decisions.</p>
@@ -209,7 +211,7 @@
       <div class="faq">
         <details>
           <summary>Can a single Platform be both a Payment Gateway and a Payment Aggregator?</summary>
-          <p>Yes. Many payment companies combine both functions — offering the transaction-processing technology of a gateway alongside the merchant onboarding and fund-holding functions of an aggregator. In India, the fund-holding part of that combined business is generally the part subject to Payment Aggregator regulation.</p>
+          <p>Yes. Many payment companies combine both functions - offering the transaction-processing technology of a gateway alongside the merchant onboarding and fund-holding functions of an aggregator. In India, the fund-holding part of that combined business is generally the part subject to Payment Aggregator regulation.</p>
         </details>
         <details>
           <summary>Does a Payment Gateway need an RBI authorization?</summary>
@@ -235,7 +237,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <div class="logo">ZentiqOne</div>
+        <img src="assets/logo.png" alt="ZentiqOne" style="height: 30px; width: auto;">
         <p class="footer-tagline">We engineer payment ecosystems.</p>
         <p>ZentiqOne is a Banking &amp; Payment Technology Engineering Platform helping Banks, FinTechs, NBFCs, Payment Aggregators, Payment Gateways, and Enterprises design, build, integrate, launch, and scale digital payment and banking solutions.</p>
       </div>

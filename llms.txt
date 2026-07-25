@@ -2,7 +2,7 @@
 
 > ZentiqOne is a Banking & Payment Technology Engineering Platform. that helps Banks, FinTechs, NBFCs, Payment Aggregators, Payment Gateways, and Enterprises design, build, integrate, launch, and scale digital payment and banking solutions.
 
-ZentiqOne is not a general software or IT Platform — it specializes exclusively in banking and payments technology, covering everything from API integrations with banks and payment networks to end-to-end platform development, compliance consulting, certification support, and managed technology services. ZentiqOne is a technology and consulting partner — not a bank, Payment Aggregator, Payment Gateway, or licensed financial entity — and works alongside the licensed institutions in this ecosystem.
+ZentiqOne is not a general software or IT Platform - it specializes exclusively in banking and payments technology, covering everything from API integrations with banks and payment networks to end-to-end platform development, compliance consulting, certification support, and managed technology services. ZentiqOne is a technology and consulting partner - not a bank, Payment Aggregator, Payment Gateway, or licensed financial entity - and works alongside the licensed institutions in this ecosystem.
 
 ## Services
 

@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   adminEmail.to = [{ email: 'zentiqone@gmail.com' }];
   adminEmail.subject = `New Inquiry from ${name}`;
   adminEmail.htmlContent = `
-    <h2>ZentiqOne — Banking & Payment Technology Engineering</h2>
+    <h2>ZentiqOne - Banking & Payment Technology Engineering</h2>
     <hr/>
     <h3>New Inquiry from ${name}</h3>
     <table cellpadding="5" cellspacing="0" style="border-collapse:collapse; font-family:sans-serif;">
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
     <br/>
     <p><strong>Action required:</strong> Respond within 24 hours, per the website's promise.</p>
     <hr/>
-    <p>— ZentiqOne Team</p>
+    <p>- ZentiqOne Team</p>
   `;
   // ------------- USER CONFIRMATION (to the lead) -------------
   const userEmail = new SendSmtpEmail();
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
   userEmail.to = [{ email }];
   userEmail.subject = 'Thank You for Your Interest in ZentiqOne';
   userEmail.htmlContent = `
-    <h2>ZentiqOne — Banking & Payment Technology Engineering</h2>
+    <h2>ZentiqOne - Banking & Payment Technology Engineering</h2>
     <p>Dear ${name},</p>
     <p>Thank you for your interest in <strong>ZentiqOne</strong>.</p>
     <p>We have received your details and will get in touch shortly.</p>
