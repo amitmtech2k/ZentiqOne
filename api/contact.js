@@ -88,26 +88,20 @@ module.exports = async function handler(req, res) {
       <p>— ZentiqOne Team</p>
     `
   };
-
-  const userEmailPayload = {
+const userEmailPayload = {
     sender: { email: 'zentiqone@gmail.com', name: 'ZentiqOne' },
     to: [{ email }],
-    subject: 'ZentiqOne : Thank you for contacting us !',
+    cc: [{ email: 'amit@zentiqone.com' }],
+    subject: `ZentiqOne - Consultation for ${company}`,
     htmlContent: `
-      <h2>ZentiqOne — Banking & Payment Technology Engineering</h2>
-      <p>Dear ${name},</p>
-      <p>Thank you for reaching out to ZentiqOne.</p>
-      <p>We have received your consultation request. Our Banking, Payments & FinTech specialists will review your requirements and get back to you within one business day.</p>
-      <table cellpadding="5" cellspacing="0" style="border-collapse:collapse; font-family:sans-serif;">
-        ${row('Name', name)}
-        ${row('Company / Organization', company)}
-        ${row('Email', email)}
-        ${row('Mobile', phone)}
-        ${row('Services Interested In', servicesList)}
-      </table>
-      <br/>
-      <p>Regards,<br/><strong>Team ZentiqOne</strong><br/>
-      support@zentiqone.com · zentiqone.com</p>
+      <p>Hi ${name},</p>
+      <p>Got your request regarding ${servicesList} for ${company}.</p>
+      <p>We have assigned one of our tech leads to discuss your requirements for the ${projectStage || 'relevant'} stage. We have you down for a ${contactMethod || 'call'} on ${meetingDate || 'a date to be confirmed'} at ${meetingTime || 'a time to be confirmed'}.</p>
+      <p>Does this time still work for you, or is there a better slot?</p>
+      <p>Best,<br/>
+      Amit<br/>
+      Founder | ZentiqOne<br/>
+      +91-8750908771 | zentiqone.com | amit@zentiqone.com</p>
     `
   };
 
