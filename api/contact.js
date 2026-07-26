@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
   const adminEmailPayload = {
     sender: { email: 'zentiqone@gmail.com', name: 'ZentiqOne' },
     to: [{ email: 'zentiqone@gmail.com' }],
-    subject: 'New Consultation Request – ZentiqOne',
+    subject: `New Enquiry on ZentiqOne from ${company || name}`,
     htmlContent: `
       <h2>ZentiqOne — Banking & Payment Technology Engineering</h2>
       <hr/>
@@ -92,7 +92,7 @@ module.exports = async function handler(req, res) {
   const userEmailPayload = {
     sender: { email: 'zentiqone@gmail.com', name: 'ZentiqOne' },
     to: [{ email }],
-    subject: 'Thank you for contacting ZentiqOne',
+    subject: 'ZentiqOne : Thank you for contacting us !',
     htmlContent: `
       <h2>ZentiqOne — Banking & Payment Technology Engineering</h2>
       <p>Dear ${name},</p>

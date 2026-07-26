@@ -287,6 +287,7 @@
   </footer>
   <script src="assets/script.js"></script>
   <script>
+
 function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -304,6 +305,14 @@ function showFieldError(inputEl, errorEl, msg) {
 function clearFieldError(inputEl, errorEl) {
   errorEl.style.display = 'none';
   inputEl.style.borderColor = '';
+}
+function formatTime12Hour(time24) {
+  if (!time24) return '';
+  const [hours, minutes] = time24.split(':');
+  const h = parseInt(hours, 10);
+  const suffix = h >= 12 ? 'PM' : 'AM';
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  return `${h12}:${minutes} ${suffix}`;
 }
 
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
@@ -354,7 +363,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     timeline: form.timeline.value,
     contactMethod: form.contactMethod.value,
     meetingDate: form.meetingDate.value,
-    meetingTime: form.meetingTime.value,
+    meetingTime: formatTime12Hour(form.meetingTime.value),
     consent: form.consent.checked,
     landingPageUrl: window.location.href,
     referrerUrl: document.referrer || 'Direct',
