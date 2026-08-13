@@ -49,7 +49,7 @@
     "logo": { "@type": "ImageObject", "url": "https://www.zentiqone.com/assets/logo.png" }
   },
   "datePublished": "2026-07-23",
-  "dateModified": "2026-07-23",
+  "dateModified": "2026-08-12",
   "mainEntityOfPage": "https://www.zentiqone.com/learn-settlement-escrow-models.html"
 }
 </script>
@@ -92,6 +92,30 @@
         "@type": "Answer",
         "text": "No. An escrow account is generally a separate, ring-fenced account used by an aggregator or marketplace to hold customer funds in transit; the merchant's own bank account is where their settled proceeds ultimately land after the escrow conditions are met."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you open an escrow account in India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The general process involves defining the transaction, identifying an appropriate bank, trustee or authorised institution, completing KYC and due diligence, preparing and executing the escrow agreement, and then establishing and funding the arrangement. Exact requirements vary by transaction and regulatory framework."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What documents are required for an escrow account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depending on the transaction, documents may include KYC information, incorporation and constitutional documents, PAN and tax information, authorised signatory details, board resolutions, the underlying transaction agreement, and the escrow agreement and instructions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can escrow funds be partially released?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partial or milestone-based release is possible where the escrow agreement specifically provides for it and the applicable conditions have been satisfied."
+      }
     }
   ]
 }
@@ -126,7 +150,7 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="learn.html">Learn</a> / Settlement and Escrow Accounts</nav>
       <span class="topic-tag">Payments 101</span>
       <h1>Settlement Models and Escrow Accounts in Digital Payments</h1>
-      <div class="article-meta"><span>ZentiqOne Learn</span><span>&middot;</span><span>~6 min read</span><span>&middot;</span><span>Updated 23 July 2026</span></div>
+      <div class="article-meta"><span>ZentiqOne Learn</span><span>&middot;</span><span>~9 min read</span><span>&middot;</span><span>Updated 12 August 2026</span></div>
       <p class="lead">Settlement is the movement of funds from an acquirer or aggregator to a merchant's own bank account after a transaction completes - the step that turns an authorized payment into money the merchant can actually use. This article explains how settlement cycles generally work, why escrow accounts exist for aggregators and marketplaces, and how the two ideas fit together in a well-built payments platform.</p>
     </div>
   </section>
@@ -159,6 +183,40 @@
       </ul>
       <p>Designing these three processes to work together cleanly, with a clear audit trail at each step, is one of the more operationally important parts of building a payment or marketplace platform. Errors here surface directly as merchant trust and support-ticket volume, often well after the checkout experience itself is done.</p>
 
+      <h2>Opening an Escrow Arrangement: The General Process</h2>
+      <p>Outside the Payment Aggregator context above, businesses also use escrow arrangements for one-off transactions - property deals, M&amp;A consideration, project milestones, and similar situations. There is no single process that applies to every case; the steps below describe the general shape of how an arrangement is typically put in place in India.</p>
+      <ol>
+        <li><strong>Define the transaction</strong> - its purpose, value, parties involved, and expected duration.</li>
+        <li><strong>Agree release conditions</strong> - the milestones, approvals, or documents that must be satisfied before funds move.</li>
+        <li><strong>Select the escrow agent</strong> - a bank, trustee, or other authorised institution suited to the transaction and applicable regulatory framework.</li>
+        <li><strong>Complete KYC and due diligence</strong> on the parties, beneficial owners, and authorised signatories.</li>
+        <li><strong>Execute the escrow agreement</strong>, covering responsibilities, the funding mechanism, the release process, dispute handling, fees, and duration.</li>
+        <li><strong>Fund and monitor</strong> - deposit funds through the agreed mechanism and track conditions as they are met.</li>
+        <li><strong>Release, reconcile, and close</strong> - disburse or return funds per the authorised instructions, then reconcile records and close the arrangement.</li>
+      </ol>
+
+      <h3>Documents Typically Required</h3>
+      <p>Exact requirements vary by transaction and institution, but commonly requested documents include:</p>
+      <ul>
+        <li>Identity and KYC documents</li>
+        <li>Company incorporation and constitutional documents</li>
+        <li>PAN and applicable tax information</li>
+        <li>Beneficial ownership and authorised signatory details</li>
+        <li>Board resolution or other authorisation, where applicable</li>
+        <li>The underlying commercial agreement, plus the escrow agreement and instructions</li>
+        <li>Bank account and beneficiary information</li>
+      </ul>
+
+      <h3>How and When Funds Are Released</h3>
+      <p>Funds are released once the conditions in the escrow agreement are satisfied and the required authorised instructions are received - typically triggered by a contractual milestone, a required approval, verification of specified documents, or joint instructions from the parties. Partial or milestone-based release is possible where the agreement expressly provides for it.</p>
+
+      <h3>Common Escrow Use Cases Beyond Payment Aggregation</h3>
+      <p>Escrow arrangements of this kind are commonly used in real estate transactions, mergers and acquisitions (holding part of the consideration against post-closing obligations), marketplace transactions, project-milestone payments, and structured finance.</p>
+
+      <div class="callout">
+        <p><strong>Note:</strong> Escrow requirements and processes vary by transaction, entity, and applicable regulation. This is a general overview, not legal or regulatory advice - confirm the specifics with your bank, trustee, or a qualified advisor before setting up an arrangement.</p>
+      </div>
+
       <div class="related-box">
         <h3>How ZentiqOne Can Help</h3>
         <p class="text-muted">ZentiqOne is a technology and consulting partner, not a bank or licensed financial entity. We help banks, FinTechs, and payment businesses design settlement, reconciliation, and disbursement architecture.</p>
@@ -186,6 +244,18 @@
         <details>
           <summary>Is an escrow account the same as a merchant's own bank account?</summary>
           <p>No. An escrow account is generally a separate, ring-fenced account used by an aggregator or marketplace to hold customer funds in transit; the merchant's own bank account is where their settled proceeds ultimately land after the escrow conditions are met.</p>
+        </details>
+        <details>
+          <summary>How do you open an escrow account in India?</summary>
+          <p>The general process involves defining the transaction, identifying an appropriate bank, trustee or authorised institution, completing KYC and due diligence, preparing and executing the escrow agreement, and then establishing and funding the arrangement. Exact requirements vary by transaction and regulatory framework.</p>
+        </details>
+        <details>
+          <summary>What documents are required for an escrow account?</summary>
+          <p>Depending on the transaction, documents may include KYC information, incorporation and constitutional documents, PAN and tax information, authorised signatory details, board resolutions, the underlying transaction agreement, and the escrow agreement and instructions.</p>
+        </details>
+        <details>
+          <summary>Can escrow funds be partially released?</summary>
+          <p>Partial or milestone-based release is possible where the escrow agreement specifically provides for it and the applicable conditions have been satisfied.</p>
         </details>
       </div>
     </div>

@@ -34,4 +34,5 @@ ZentiqOne is not a general software or IT Platform - it specializes exclusively 
 - [About ZentiqOne](https://www.zentiqone.com/about.html): Positioning, approach, and delivery process
 - [Industries We Serve](https://www.zentiqone.com/industries.html): Banks, NBFCs, FinTechs, payment aggregators/gateways, insurance, government, enterprises and more
 - [Success Stories](https://www.zentiqone.com/success-stories.html): Case studies (coming soon)
+- [Submit a Review](https://www.zentiqone.com/submit-review.html): Share your experience working with ZentiqOne
 - [Contact](https://www.zentiqone.com/contact.html): Schedule a consultation
