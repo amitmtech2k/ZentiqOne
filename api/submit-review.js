@@ -1,4 +1,6 @@
 const { BrevoClient } = require('@getbrevo/brevo');
+const crypto = require('crypto');
+const store = require('../lib/reviews-store');
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -40,6 +42,26 @@ module.exports = async function handler(req, res) {
   const row = (label, value) => `<tr><td><strong>${label}</strong></td><td>${value || 'N/A'}</td></tr>`;
   const yesNo = (v) => v ? 'Yes' : 'No';
 
+  const reviewId = crypto.randomUUID();
+  let approveLinkHtml = '';
+
+  if (store.configured()) {
+    try {
+      const { reviews, sha } = await store.readReviews();
+      reviews.push({
+        id: reviewId, rating: ratingNum, review, name, title, company, email, website, phone,
+        permDisplay: !!permDisplay, permMarketing: !!permMarketing, permTranslate: !!permTranslate,
+        submittedAt: submittedIST, status: 'pending'
+      });
+      await store.writeReviews(reviews, sha, `Add pending review ${reviewId}`);
+      const token = crypto.createHmac('sha256', process.env.APPROVE_SECRET).update(reviewId).digest('hex');
+      const approveUrl = `https://www.zentiqone.com/api/approve-review?id=${reviewId}&token=${token}`;
+      approveLinkHtml = `<p><a href="${approveUrl}" style="display:inline-block;padding:10px 20px;background:#0a4b8f;color:#fff;text-decoration:none;border-radius:4px;">Approve &amp; Publish This Review</a></p>`;
+    } catch (storeError) {
+      console.error('Review store error:', storeError);
+    }
+  }
+
   const adminEmailPayload = {
     sender: { email: 'zentiqone@gmail.com', name: 'ZentiqOne' },
     to: [{ email: 'zentiqone@gmail.com' }],
@@ -64,6 +86,7 @@ module.exports = async function handler(req, res) {
         ${row('Landing Page URL', landingPageUrl)}
         ${row('Browser Info', userAgent)}
       </table>
+      ${approveLinkHtml}
       <hr/>
       <p>ZentiqOne Team</p>
     `

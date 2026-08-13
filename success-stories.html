@@ -80,11 +80,38 @@
     </div>
   </section>
 
-  <section class="reveal">
+  <section class="reveal" id="reviewsFallback">
     <div class="container">
       <p>ZentiqOne is compiling detailed case studies from engagements across its service portfolio - Payment Platform Development, Banking Solutions, API Integrations, Merchant Enablement, Banking Consulting, and Managed Technology Services. These engagements span the industries ZentiqOne serves, including Banks, Urban Cooperative Banks, NBFCs, FinTechs, Payment Aggregators, Payment Gateways, Insurance, Government, Large Enterprises, E-commerce, and SaaS Platforms. Upcoming stories will walk through how ZentiqOne's end-to-end delivery process - from initial consulting through architecture, development, testing, certification, go-live, and ongoing managed services - helps organizations launch and scale digital payment and banking products. Check back soon, or schedule a consultation to discuss a similar engagement for your organization.</p>
     </div>
   </section>
+
+  <section class="reveal" id="reviewsSection" style="display:none;">
+    <div class="container">
+      <h2>What Clients Say</h2>
+      <div class="grid-3" id="reviewsGrid"></div>
+    </div>
+  </section>
+
+  <script>
+    fetch('/api/get-reviews').then(function (r) { return r.json(); }).then(function (data) {
+      var reviews = data.reviews || [];
+      if (!reviews.length) return;
+      var grid = document.getElementById('reviewsGrid');
+      reviews.forEach(function (rv) {
+        var stars = '★'.repeat(rv.rating) + '☆'.repeat(5 - rv.rating);
+        var card = document.createElement('div');
+        card.className = 'card';
+        var who = [rv.title, rv.company].filter(Boolean).join(', ');
+        card.innerHTML = '<p aria-label="' + rv.rating + ' out of 5 stars">' + stars + '</p>' +
+          '<p>' + rv.review.replace(/</g, '&lt;') + '</p>' +
+          '<p><strong>' + rv.name.replace(/</g, '&lt;') + '</strong>' + (who ? '<br>' + who.replace(/</g, '&lt;') : '') + '</p>';
+        grid.appendChild(card);
+      });
+      document.getElementById('reviewsSection').style.display = '';
+      document.getElementById('reviewsFallback').style.display = 'none';
+    }).catch(function () {});
+  </script>
 
   <section class="cta-band reveal">
     <div class="container text-center">
