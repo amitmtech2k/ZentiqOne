@@ -11,7 +11,7 @@ module.exports = async function handler(req, res) {
     landingPageUrl, submittedAt, hp_check, userAgent
   } = req.body;
 
-  // Honeypot check — if filled, it's a bot; silently pretend success
+  // Honeypot check: if filled, it's a bot. Silently pretend success.
   if (hp_check) {
     return res.status(200).json({ success: true });
   }
@@ -46,7 +46,7 @@ module.exports = async function handler(req, res) {
     cc: [{ email: 'amit@zentiqone.com' }],
     subject: `New ${ratingNum}-Star Review on ZentiqOne from ${name}`,
     htmlContent: `
-      <h2>ZentiqOne — New Review Submission</h2>
+      <h2>ZentiqOne: New Review Submission</h2>
       <hr/>
       <table cellpadding="5" cellspacing="0" style="border-collapse:collapse; font-family:sans-serif;">
         ${row('Rating', `${ratingNum} / 5`)}
@@ -65,7 +65,7 @@ module.exports = async function handler(req, res) {
         ${row('Browser Info', userAgent)}
       </table>
       <hr/>
-      <p>— ZentiqOne Team</p>
+      <p>ZentiqOne Team</p>
     `
   };
 

@@ -12,7 +12,7 @@ module.exports = async function handler(req, res) {
     landingPageUrl, referrerUrl, submittedAt,
     website, userAgent
   } = req.body;
-  // Honeypot check — if filled, it's a bot; silently pretend success
+  // Honeypot check: if filled, it's a bot. Silently pretend success.
   if (website) {
     return res.status(200).json({ success: true });
   }
@@ -58,7 +58,7 @@ module.exports = async function handler(req, res) {
     to: [{ email: 'zentiqone@gmail.com' }],
     subject: `New Enquiry on ZentiqOne from ${company || name}`,
     htmlContent: `
-      <h2>ZentiqOne — Banking & Payment Technology Engineering</h2>
+      <h2>ZentiqOne: Banking & Payment Technology Engineering</h2>
       <hr/>
       <h3>New Consultation Request</h3>
       <table cellpadding="5" cellspacing="0" style="border-collapse:collapse; font-family:sans-serif;">
@@ -85,7 +85,7 @@ module.exports = async function handler(req, res) {
       <br/>
       <p><strong>Action required:</strong> Respond within 24 hours, per the website's promise.</p>
       <hr/>
-      <p>— ZentiqOne Team</p>
+      <p>ZentiqOne Team</p>
     `
   };
 const userEmailPayload = {
