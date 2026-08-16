@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Settlement & Escrow Models in Payments | ZentiqOne</title>
-<meta name="description" content="How funds move from an acquirer to a merchant's account, and the escrow arrangements used to hold funds before settlement.">
+<meta name="description" content="How settlement, reconciliation, and escrow accounts work in digital payments, and how exceptions get resolved before funds reach a merchant.">
 <link rel="canonical" href="https://www.zentiqone.com/learn-settlement-escrow-models.html">
 <meta name="robots" content="index, follow">
 <meta name="keywords" content="Banking Solutions, Payment Solutions, Payment Orchestration, Payment Aggregator, Digital Banking, FinTech Consulting, API Banking, UPI, AEPS, BBPS, Payment Gateway, Banking Technology, Banking Transformation">
@@ -49,7 +49,7 @@
     "logo": { "@type": "ImageObject", "url": "https://www.zentiqone.com/assets/logo.png" }
   },
   "datePublished": "2026-07-23",
-  "dateModified": "2026-08-12",
+  "dateModified": "2026-08-14",
   "mainEntityOfPage": "https://www.zentiqone.com/learn-settlement-escrow-models.html"
 }
 </script>
@@ -116,6 +116,22 @@
         "@type": "Answer",
         "text": "Partial or milestone-based release is possible where the escrow agreement specifically provides for it and the applicable conditions have been satisfied."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between settlement and reconciliation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Settlement is the movement of funds from the acquirer or aggregator to the merchant's account. Reconciliation is a separate check that confirms the transaction records across the payment gateway, bank statement, and internal systems all agree, run alongside or after settlement to catch mismatches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes most reconciliation exceptions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common causes include timing differences between systems, duplicate entries from retried transactions, partial refunds processed after settlement, and transactions that complete on one system but not another. Most are resolved through a defined daily reconciliation and exception management process rather than being unusual on their own."
+      }
     }
   ]
 }
@@ -126,7 +142,7 @@
   <header class="site-header">
     <nav class="navbar" aria-label="Primary">
       <a href="index.html" class="logo">
-  <img src="assets/logo.png" alt="ZentiqOne" style="height: 40px; width: auto;">
+  <img src="assets/logo-icon.png" alt="ZentiqOne" width="170" height="150" style="height: 40px; width: auto;">
 </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
@@ -150,7 +166,7 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="learn.html">Learn</a> / Settlement and Escrow Accounts</nav>
       <span class="topic-tag">Settlement</span>
       <h1>Settlement Models and Escrow Accounts in Digital Payments</h1>
-      <div class="article-meta"><span>ZentiqOne Learn</span><span>&middot;</span><span>~9 min read</span><span>&middot;</span><span>Updated 12 August 2026</span></div>
+      <div class="article-meta"><span>ZentiqOne Learn</span><span>&middot;</span><span>~11 min read</span><span>&middot;</span><span>Updated 14 August 2026</span></div>
       <p class="lead">Settlement is the movement of funds from an acquirer or aggregator to a merchant's own bank account after a transaction completes - the step that turns an authorized payment into money the merchant can actually use. This article explains how settlement cycles generally work, why escrow accounts exist for aggregators and marketplaces, and how the two ideas fit together in a well-built payments platform.</p>
     </div>
   </section>
@@ -182,6 +198,12 @@
         <li><strong>Disbursement</strong> is the final step of paying out settled funds to the correct destination - a single merchant, or in a marketplace, potentially many individual sellers - net of fees, refunds, and any holdbacks.</li>
       </ul>
       <p>Designing these three processes to work together cleanly, with a clear audit trail at each step, is one of the more operationally important parts of building a payment or marketplace platform. Errors here surface directly as merchant trust and support-ticket volume, often well after the checkout experience itself is done.</p>
+
+      <h2>Reconciliation and Exception Management in Practice</h2>
+      <p>Reconciliation is the process of matching transaction records held in different systems, typically the payment gateway or processor's own ledger, the bank's settlement file, and the merchant's or platform's internal order records, to confirm that every transaction is accounted for consistently across all three. When the records agree, the transaction reconciles cleanly. When they don't, it becomes an exception that needs investigation before the books can be closed.</p>
+      <p>Exceptions arise for a range of ordinary reasons: a transaction the gateway shows as successful but the settlement file omits, a duplicate entry created by a retried API call, an amount mismatch caused by a partial refund processed after settlement, or a transaction still pending on one side while marked complete on another. None of these are unusual in a high-volume payment system - they're a normal part of operating one - but they need a defined process to resolve.</p>
+      <p>A well-run exception management process typically involves automatically flagging mismatches as reconciliation runs (commonly daily, against the settlement file), categorizing each exception by type, routing it to the right team or system for investigation, and tracking it through to closure with an audit trail. Left unmanaged, unresolved exceptions accumulate, delay accurate financial reporting, and often surface later as merchant disputes or support escalations.</p>
+      <p>This is one of the less visible but more operationally important parts of running a payment or marketplace platform, and it's a core part of what ZentiqOne's Managed Technology Services practice supports on an ongoing basis after a platform goes live.</p>
 
       <h2>Opening an Escrow Arrangement: The General Process</h2>
       <p>Outside the Payment Aggregator context above, businesses also use escrow arrangements for one-off transactions - property deals, M&amp;A consideration, project milestones, and similar situations. There is no single process that applies to every case; the steps below describe the general shape of how an arrangement is typically put in place in India.</p>
@@ -223,6 +245,7 @@
         <ul>
           <li><a href="service-payment-platforms.html"><strong>Payment Platform Development →</strong></a> engineering settlement, reconciliation, and disbursement into your platform.</li>
           <li><a href="service-banking-consulting.html"><strong>Banking Consulting →</strong></a> guidance on escrow arrangements and settlement architecture aligned to regulatory expectations.</li>
+          <li><a href="service-managed-services.html"><strong>Managed Technology Services →</strong></a> ongoing reconciliation and exception management support after go-live.</li>
         </ul>
       </div>
 
@@ -257,6 +280,14 @@
           <summary>Can escrow funds be partially released?</summary>
           <p>Partial or milestone-based release is possible where the escrow agreement specifically provides for it and the applicable conditions have been satisfied.</p>
         </details>
+        <details>
+          <summary>What's the difference between settlement and reconciliation?</summary>
+          <p>Settlement is the movement of funds from the acquirer or aggregator to the merchant's account. Reconciliation is a separate check that confirms the transaction records across the payment gateway, bank statement, and internal systems all agree, run alongside or after settlement to catch mismatches.</p>
+        </details>
+        <details>
+          <summary>What causes most reconciliation exceptions?</summary>
+          <p>Common causes include timing differences between systems, duplicate entries from retried transactions, partial refunds processed after settlement, and transactions that complete on one system but not another. Most are resolved through a defined daily reconciliation and exception management process rather than being unusual on their own.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -273,7 +304,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="assets/logo.png" alt="ZentiqOne" style="height: 30px; width: auto;">
+        <img src="assets/logo-icon.png" alt="ZentiqOne" width="170" height="150" style="height: 30px; width: auto;" loading="lazy">
         <p class="footer-tagline">We engineer payment ecosystems.</p>
         <p>ZentiqOne is a Banking &amp; Payment Technology Engineering Platform for banks, FinTechs, and enterprises.</p>
       </div>

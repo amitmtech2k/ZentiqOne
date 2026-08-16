@@ -20,7 +20,7 @@ ZentiqOne is not a general software or IT Platform - it specializes exclusively 
 - [How UPI Works](https://www.zentiqone.com/learn-how-upi-works.html): NPCI, PSPs, VPAs, and the UPI transaction flow explained
 - [NPCI and India's Payment Rails](https://www.zentiqone.com/learn-npci-payment-rails.html): UPI, IMPS, NACH, FASTag, AEPS, BBPS, and RuPay explained
 - [Payment Aggregator Licensing in India](https://www.zentiqone.com/learn-payment-aggregator-license-india.html): A general educational overview of the RBI PA/PG regulatory framework (not legal advice)
-- [Settlement Models and Escrow Accounts](https://www.zentiqone.com/learn-settlement-escrow-models.html): How settlement cycles, escrow, and nodal accounts work
+- [Settlement Models and Escrow Accounts](https://www.zentiqone.com/learn-settlement-escrow-models.html): How settlement cycles, escrow, nodal accounts, and reconciliation and exception management work
 - [ISO 8583 vs. ISO 20022](https://www.zentiqone.com/learn-iso8583-vs-iso20022.html): Payment messaging standards compared
 - [KYC, Video KYC, and CKYC](https://www.zentiqone.com/learn-kyc-video-kyc-ckyc.html): Digital customer onboarding explained
 - [Payment Orchestration](https://www.zentiqone.com/learn-payment-orchestration.html): What it is and why multi-gateway routing matters
