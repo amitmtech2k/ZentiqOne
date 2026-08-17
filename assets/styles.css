@@ -196,6 +196,9 @@ textarea { resize: vertical; }
 @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand .logo { color: #fff; font-weight: 800; font-size: 1.4rem; margin-bottom: 0.7rem; }
 .footer-tagline { color: #fff; font-weight: 700; margin-bottom: 0.6rem; }
+.footer-social { display: inline-flex; align-items: center; gap: 0.4rem; color: #fff; font-weight: 700; margin-top: 0.85rem; }
+.footer-social svg { fill: currentColor; }
+.footer-social:hover { color: #FD7902; }
 .footer-col h3 { color: #fff; font-size: 1rem; margin-bottom: 0.9rem; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
 .footer-col a { color: #cdd8f2; }
