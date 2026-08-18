@@ -2,6 +2,10 @@
 
 Working notes for the ZentiqOne site/repo, kept so future sessions can get up to speed fast. I don't have automatic memory across chats, if you point me at this file (or it's in the connected folder) at the start of a session, I'll read it before diving in.
 
+## Read standing-instructions.md first, every session
+
+It's the master checklist of everything Shayla has had to repeat: no content without approval (detail in `content-approval-rules.md`), always verify the live site before saying something's done, avoid AI-slop design patterns (detail in `ai.md`), work directly instead of burning tokens on unnecessary previews, no em dashes or emojis, and keep everything pending review in `pending-approval/`. Read it in full before doing anything on this site.
+
 ## What ZentiqOne Is
 
 Banking, Payments & FinTech engineering/consulting platform (not a bank, PA, or PG itself, works alongside licensed institutions). Founder: Amit (amit@zentiqone.com, +91-8750908771). Site built/maintained with help from RazorSharpFocus (credited in every page footer).
@@ -53,8 +57,16 @@ Banking, Payments & FinTech engineering/consulting platform (not a bank, PA, or 
 - `/get-info/` folder still not created (reserved for future non-overlapping pages)
 - Local folder has an untracked file not on GitHub: `ZentiqOne Consultation_Contact us Page Specification.docx`, never committed, probably worth checking with Amit
 - Local Windows checkout uses CRLF line endings vs LF on GitHub, cosmetic only (confirmed via diff), not fixed, not asked to fix
-- Reviews submitted via `submit-review.html` currently only email the admin inbox. There's no public display of approved reviews yet (success-stories.html is still placeholder text)
 - `contact.html` uses flag emoji in its country-code dropdown (pre-existing, not something I added). Flagged below, not removed, since it wasn't part of this cleanup request until confirmed
+
+**Aug 13, 2026: Review approve-and-publish backend built.**
+- First pass used Vercel KV, dropped it: Vercel discontinued first-party KV in Dec 2024, replacement (Upstash via Marketplace) requires signing up with a separate third-party vendor mid-setup, too much friction for Amit to self-serve. Switched to storing reviews as a JSON file (`data/reviews.json`) committed directly to this same GitHub repo, using the GitHub Contents API. No new vendor account, reuses the GitHub login Amit already has for this repo.
+- `lib/reviews-store.js` (new): shared helper, reads/writes `data/reviews.json` via GitHub's REST API using a personal access token (`GITHUB_TOKEN` env var) and `GITHUB_REPO` (e.g. `amitmtech2k/ZentiqOne`).
+- `api/submit-review.js`: on submit, appends the review (`status: 'pending'`) to `data/reviews.json` via a GitHub API commit, and adds an "Approve & Publish" link to the admin notification email. Link = `/api/approve-review?id=<id>&token=<hmac>`, token is HMAC-SHA256 of the id using `APPROVE_SECRET` env var so it can't be guessed. If `GITHUB_TOKEN`/`GITHUB_REPO`/`APPROVE_SECRET` aren't set yet, this step is skipped and old email-only behavior continues, nothing breaks.
+- `api/approve-review.js`: admin clicks the email link, verifies the token, flips that review's status to `approved` in `data/reviews.json` via another GitHub API commit. That commit auto-triggers a normal Vercel redeploy (same as any other push). Confirmation page tells the admin it takes about a minute to go live. Idempotent (safe to click twice).
+- `api/get-reviews.js`: public GET endpoint, `require`s the bundled `data/reviews.json` directly (so it's always in sync with the latest deploy), returns only reviews where `status === 'approved'` and the customer checked "may display on website." Only public-safe fields (no email/phone/website).
+- `success-stories.html`: fetches `/api/get-reviews` on load, renders a card grid if any come back, otherwise keeps the existing "compiling case studies" text.
+- **Setup needed before this goes live (all in GitHub + Vercel, no new signup)**: (1) GitHub.com -> profile -> Settings -> Developer settings -> Personal access tokens -> Fine-grained tokens -> Generate new token, scope it to the ZentiqOne repo only, permission "Contents: Read and write", generate, copy it. (2) Vercel project -> Settings -> Environment Variables -> add `GITHUB_TOKEN` (the token from step 1), `GITHUB_REPO` = `amitmtech2k/ZentiqOne`, `APPROVE_SECRET` = any random string. (3) Redeploy. Three env vars, no database, no separate account.
 
 ## Style Rule
 

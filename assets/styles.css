@@ -63,7 +63,7 @@ p { margin-top: 0; }
 .nav-links a { color: #dce4f5; font-weight: 500; }
 .nav-links a:hover { color: #fff; text-decoration: none; }
 .nav-cta { background: var(--color-blue); color: #fff !important; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; }
-.nav-cta:hover { background: #173dcc; }
+.nav-cta:hover { background: #E0700A; }
 
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
@@ -203,8 +203,8 @@ textarea { resize: vertical; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.55rem; }
 .footer-col a { color: #cdd8f2; }
 .footer-col a:hover { color: #fff; }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15); margin-top: 2.5rem; padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: #9fb0d3; }
-.footer-bottom a { color: var(--indigo-l); text-decoration: underline;}
+.footer-bottom { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15); margin-top: 2.5rem; padding-top: 1.5rem; text-align: center; font-size: 0.85rem; color: #9fb0d3; }
+.footer-bottom a { color: var(--color-blue); text-decoration: underline;}
 /* Utilities */
 .mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
@@ -215,7 +215,8 @@ textarea { resize: vertical; }
    ========================================================= */
 .stats-bar { background: #fff; border-bottom: 1px solid var(--color-border); padding: 32px 0; }
 .stats-bar-inner { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-.stat-item { flex: 1 1 200px; text-align: center; min-width: 150px; }
+.stat-item { flex: 1 1 200px; text-align: center; min-width: 150px; display: flex; flex-direction: column; align-items: center; }
+.stat-icon { width: 26px; height: 26px; margin-bottom: 0.5rem; color: var(--color-blue); }
 .stat-num { display: block; font-size: 2.25rem; font-weight: 800; color: var(--color-navy); line-height: 1.1; }
 .stat-label { display: block; margin-top: 0.4rem; color: var(--color-text-muted); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
 @media (max-width: 600px) { .stats-bar-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
@@ -453,4 +454,70 @@ textarea { resize: vertical; }
 .form-grid button[type="submit"]:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+/* =========================================================
+   Service timeline (alternating, scroll-linked)
+   ========================================================= */
+.service-timeline { margin-top: 1rem; }
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr;
+  align-items: center;
+  column-gap: 2.5rem;
+  padding: 2.25rem 0;
+}
+.service-row:first-child { padding-top: 0; }
+.service-row:last-child { padding-bottom: 0; }
+.service-track {
+  grid-column: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: stretch;
+}
+.service-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--color-border);
+  transform: translateX(-50%);
+}
+.service-row:first-child .service-track::before { top: 50%; }
+.service-row:last-child .service-track::before { bottom: 50%; }
+.service-icon {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-navy);
+  transition: border-color .25s ease, color .25s ease, background .25s ease;
+}
+.service-icon svg { width: 24px; height: 24px; }
+.service-row.in-view .service-icon { border-color: var(--color-blue); background: var(--color-blue); color: #fff; }
+.service-content { grid-column: 3; }
+.service-row:nth-child(even) .service-content { grid-column: 1; }
+.service-content h3 { margin-top: 0; }
+.service-content ul { margin: 0.75rem 0 0; padding-left: 1.2rem; color: var(--color-text-muted); }
+.service-content ul li { margin-bottom: 0.3rem; }
+@media (max-width: 900px) {
+  .service-row {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    grid-template-columns: none;
+    gap: 1.25rem;
+    padding: 1.75rem 0;
+  }
+  .service-row:nth-child(even) .service-content { grid-column: unset; }
+  .service-track { align-self: stretch; }
 }
