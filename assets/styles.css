@@ -103,9 +103,24 @@ section { padding: 64px 0; }
 .hero { padding: 72px 0 60px; background: linear-gradient(180deg, var(--color-blue-light), #ffffff); }
 .hero .container { max-width: 880px; text-align: center; }
 .badge { display: inline-block; background: var(--color-navy); color: #fff; padding: 0.4rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.9rem; margin-bottom: 1.25rem; }
-.definition-block { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem auto 0; text-align: left; }
+.definition-block { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-left: 4px solid var(--color-blue); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin: 2rem auto 0; text-align: left; }
 .hero .btn-row { justify-content: center; margin-top: 1.75rem; }
 .hero-tagline { color: var(--color-text-muted); font-weight: 700; margin-top: 1.5rem; }
+
+/* Dark hero variant (matches RazorSharpFocus's own brand deck) */
+.hero-dark { background: var(--color-navy); position: relative; overflow: hidden; }
+.hero-dark::before, .hero-dark::after { content: ""; position: absolute; border-radius: 50%; filter: blur(70px); opacity: 0.28; pointer-events: none; }
+.hero-dark::before { width: 420px; height: 420px; background: var(--color-blue); top: -140px; right: -100px; }
+.hero-dark::after { width: 320px; height: 320px; background: #6b4a2a; bottom: -150px; left: -90px; }
+.hero-dark .container { position: relative; z-index: 1; }
+.hero-dark h1 { color: #fff; }
+.hero-dark p { color: #fff; }
+.hero-dark .lead { color: #c9cedd; }
+.hero-dark .hero-tagline { color: #c9cedd; }
+.hero-dark .definition-block, .hero-dark .definition-block p { background: #fff; color: var(--color-navy); }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(253, 121, 2, 0.5); background: rgba(253, 121, 2, 0.1); color: var(--color-blue); padding: 0.45rem 1.15rem; border-radius: 999px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.03em; margin-bottom: 1.5rem; }
+.hero-dark .btn-navy { color: #fff; border-color: #fff; }
+.hero-dark .btn-navy:hover { background: #fff; color: var(--color-navy); border-color: #fff; }
 
 /* Page hero (non-home) */
 .page-hero { background: var(--color-blue-light); padding: 52px 0 48px; }
@@ -120,30 +135,30 @@ section { padding: 64px 0; }
 @media (max-width: 600px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
 
 /* Cards (standalone, e.g. contact details / single callout boxes) */
-.card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.6rem; transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
+.card { background: #fff; border: 1px solid var(--color-border); border-left: 4px solid var(--color-blue); border-radius: var(--radius); box-shadow: 0 4px 16px rgba(20, 17, 15, 0.05); padding: 1.6rem; transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
 .card:hover { box-shadow: var(--shadow); transform: translateY(-6px); }
 .card h3 { margin-bottom: 0.5rem; }
 .card ul { margin: 0.85rem 0; padding-left: 1.1rem; color: var(--color-text-muted); }
 .card li { margin-bottom: 0.35rem; }
 .card .learn-more { font-weight: 700; }
-.badge-num { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--color-blue-light); color: var(--color-blue); font-weight: 800; margin-bottom: 0.9rem; flex-shrink: 0; transition: background var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease); }
+.badge-num { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: var(--color-blue-light); color: var(--color-blue); font-weight: 800; margin-bottom: 0.9rem; flex-shrink: 0; transition: background var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease); }
 
-/* Repeated grid cards (reason/feature/service lists): flat row with a top rule
-   instead of identical boxed tiles, icon/number sits inline with the heading
-   instead of stacked above it. */
+/* Repeated grid cards (reason/feature/service lists): boxed tile with an
+   accent bar on the left, matching the RazorSharpFocus brand card system. */
 .grid .card {
-  background: transparent;
-  border: none;
-  border-top: 1px solid var(--color-border);
-  border-radius: 0;
-  box-shadow: none;
-  padding: 1.75rem 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-blue);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.05);
+  padding: 1.75rem;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   column-gap: 0.85rem;
+  transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease);
 }
-.grid .card:hover { box-shadow: none; transform: translateY(-6px); border-top-color: #FD7902; }
+.grid .card:hover { box-shadow: var(--shadow); transform: translateY(-6px); }
 .grid .card:hover .badge-num { background: #FD7902; color: #fff; }
 .grid .card h3 { flex: 1 1 auto; margin-bottom: 0; }
 .grid .card .badge-num { margin-bottom: 0; }
@@ -247,32 +262,33 @@ textarea { resize: vertical; }
    ========================================================= */
 .icon-svg { width: 40px; height: 40px; stroke: var(--color-blue); fill: none; stroke-width: 1.6; }
 .icon-svg-fill { fill: var(--color-blue); stroke: none; }
-.icon-badge { width: 64px; height: 64px; border-radius: 50%; background: var(--color-blue-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; }
+.icon-badge { width: 64px; height: 64px; border-radius: 16px; background: var(--color-blue-light); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; flex-shrink: 0; transition: background var(--duration-fast) var(--ease); }
 .icon-badge .icon-svg { width: 30px; height: 30px; }
 
 /* =========================================================
    Trust / compliance section
    ========================================================= */
 .trust-card {
-  background: transparent;
-  border: none;
-  border-top: 1px solid var(--color-border);
-  border-radius: 0;
-  padding: 1.75rem 0;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-blue);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.05);
+  padding: 1.75rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   column-gap: 1rem;
-  transition: border-color var(--duration-fast) var(--ease);
+  transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease);
 }
-.trust-card:hover { border-top-color: #FD7902; }
+.trust-card:hover { box-shadow: var(--shadow); transform: translateY(-6px); }
 .trust-card:hover .icon-badge { background: #FD7902; }
 .trust-card:hover .icon-badge .icon-svg { stroke: #fff; }
 .trust-card .icon-badge { margin-bottom: 0; width: 48px; height: 48px; }
 .trust-card .icon-badge .icon-svg { width: 24px; height: 24px; }
 .trust-card h3 { flex: 1 1 auto; margin-bottom: 0; }
 .trust-card p { flex-basis: 100%; margin-top: 0.6rem; }
-.trust-clarifier { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-top: 2rem; }
+.trust-clarifier { background: var(--color-bg-alt); border: 1px solid var(--color-border); border-left: 4px solid var(--color-blue); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-top: 2rem; }
 .trust-clarifier p { margin: 0; color: var(--color-text); }
 .trust-clarifier strong { color: var(--color-navy); }
 
@@ -335,7 +351,7 @@ textarea { resize: vertical; }
    ========================================================= */
 .learn-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 700px) { .learn-grid { grid-template-columns: 1fr; } }
-.learn-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.6rem; transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
+.learn-card { background: #fff; border: 1px solid var(--color-border); border-left: 4px solid var(--color-blue); border-radius: var(--radius); box-shadow: 0 4px 16px rgba(20, 17, 15, 0.05); padding: 1.6rem; transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
 .learn-card:hover { box-shadow: var(--shadow); transform: translateY(-6px); }
 .learn-card .topic-tag { margin-bottom: 0.85rem; }
 .learn-card h3 { margin-bottom: 0.5rem; }
