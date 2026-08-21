@@ -191,10 +191,17 @@ section { padding: 64px 0; }
 .icon-item span { font-weight: 700; color: var(--color-navy); font-size: 0.95rem; }
 
 /* Flow diagram */
+.flow-group + .flow-divider { height: 1px; background: var(--color-border); margin: 2.5rem 0; }
+.flow-group-title { text-align: center; font-size: 1.05rem; margin: 0 0 1.25rem; color: var(--color-navy); }
+.flow-group:first-child { margin-top: 0; }
 .flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0; }
-.flow-step { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.25rem; font-weight: 700; color: var(--color-navy); text-align: center; min-width: 130px; }
-.flow-arrow { color: var(--color-blue); font-size: 1.5rem; padding: 0 0.7rem; font-weight: 700; }
-.flow-caption { text-align: center; max-width: 760px; margin: 1.75rem auto 0; color: var(--color-text-muted); }
+.flow-step { background: #fff; border: 1px solid var(--color-border); border-top: 3px solid var(--color-blue); border-radius: var(--radius); box-shadow: 0 2px 8px rgba(20, 17, 15, 0.05); padding: 1rem 1.25rem; font-weight: 700; color: var(--color-navy); text-align: center; min-width: 130px; transition: box-shadow var(--duration-base) var(--ease), transform var(--duration-base) var(--ease); }
+.flow-step:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+.flow-arrow { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; flex: 0 0 26px; border-radius: 50%; background: var(--color-blue-light); color: var(--color-blue); font-size: 0.95rem; margin: 0 0.55rem; font-weight: 700; }
+.flow-caption { text-align: center; max-width: 760px; margin: 1.5rem auto 0; color: var(--color-text-muted); }
+.chip-group { margin-bottom: 2rem; }
+.chip-group:last-child { margin-bottom: 0; }
+.chip-group-title { font-size: 1.05rem; margin: 0 0 1rem; color: var(--color-navy); }
 @media (max-width: 768px) {
   .flow { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); padding: 0.5rem 0; }
@@ -518,7 +525,25 @@ textarea { resize: vertical; }
 /* =========================================================
    Service timeline (alternating, scroll-linked)
    ========================================================= */
-.service-timeline { margin-top: 1rem; }
+.service-timeline { position: relative; margin-top: 1rem; }
+.service-timeline-line {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  background: var(--color-border);
+  transform: translateX(-50%);
+  z-index: 0;
+  /* top/bottom set by JS to align exactly with the first and last icon centers */
+}
+.service-timeline-line-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, #FF9A33, var(--color-blue));
+  will-change: height;
+}
 .service-row {
   display: grid;
   grid-template-columns: 1fr 64px 1fr;
@@ -531,37 +556,11 @@ textarea { resize: vertical; }
 .service-track {
   grid-column: 2;
   position: relative;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-self: stretch;
 }
-.service-track::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: var(--color-border);
-  transform: translateX(-50%);
-}
-.service-track::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background: var(--color-blue);
-  transform: translateX(-50%) scaleY(0);
-  transform-origin: top;
-  transition: transform 0.7s var(--ease);
-}
-.service-row:first-child .service-track::before,
-.service-row:first-child .service-track::after { top: 50%; }
-.service-row:last-child .service-track::before,
-.service-row:last-child .service-track::after { bottom: 50%; }
-.service-row.in-view .service-track::after { transform: translateX(-50%) scaleY(1); }
 .service-icon {
   position: relative;
   z-index: 1;
@@ -588,9 +587,9 @@ textarea { resize: vertical; }
 .service-content ul li { margin-bottom: 0.3rem; }
 @media (prefers-reduced-motion: reduce) {
   .service-content { opacity: 1; transform: none; }
-  .service-track::after { transition: none; }
 }
 @media (max-width: 900px) {
+  .service-timeline-line { display: none; }
   .service-row {
     display: flex;
     flex-direction: row-reverse;

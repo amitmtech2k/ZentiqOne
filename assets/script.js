@@ -47,18 +47,120 @@
 
     var serviceRows = document.querySelectorAll('.service-row');
     if (serviceRows.length) {
-      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        var rowObserver = new IntersectionObserver(function (entries, observer) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.4 });
-        serviceRows.forEach(function (el) { rowObserver.observe(el); });
-      } else {
+      var timelineEl = document.querySelector('.service-timeline');
+      var lineEl = document.querySelector('.service-timeline-line');
+      var fillEl = lineEl ? lineEl.querySelector('.service-timeline-line-fill') : null;
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reducedMotion) {
         serviceRows.forEach(function (el) { el.classList.add('in-view'); });
+        if (fillEl) fillEl.style.height = '100%';
+      } else {
+        // Desktop: one continuous line whose fill height and every row's
+        // active state are derived from a single scroll-progress value, so
+        // the line, the icon highlight, and the content reveal can never
+        // fall out of sync. Mobile (line hidden, row-reverse layout): a
+        // simple one-time per-row IntersectionObserver reveal instead.
+        var desktopQuery = window.matchMedia('(min-width: 901px)');
+        var scrollHandler = null;
+        var resizeHandler = null;
+        var rowObserver = null;
+
+        var teardown = function () {
+          if (scrollHandler) { window.removeEventListener('scroll', scrollHandler); scrollHandler = null; }
+          if (resizeHandler) {
+            window.removeEventListener('resize', resizeHandler);
+            window.removeEventListener('load', resizeHandler);
+            resizeHandler = null;
+          }
+          if (rowObserver) { rowObserver.disconnect(); rowObserver = null; }
+        };
+
+        var startMobileReveal = function () {
+          teardown();
+          serviceRows.forEach(function (el) { el.classList.remove('in-view'); });
+          if ('IntersectionObserver' in window) {
+            rowObserver = new IntersectionObserver(function (entries, observer) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('in-view');
+                  observer.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.4 });
+            serviceRows.forEach(function (el) { rowObserver.observe(el); });
+          } else {
+            serviceRows.forEach(function (el) { el.classList.add('in-view'); });
+          }
+        };
+
+        var startDesktopLine = function () {
+          teardown();
+          if (!timelineEl || !lineEl || !fillEl) { startMobileReveal(); return; }
+          serviceRows.forEach(function (el) { el.classList.remove('in-view'); });
+
+          var iconOffsets = [];
+          var lineHeightPx = 0;
+          var ticking = false;
+
+          var measure = function () {
+            var firstIcon = serviceRows[0].querySelector('.service-icon');
+            var lastIcon = serviceRows[serviceRows.length - 1].querySelector('.service-icon');
+            if (!firstIcon || !lastIcon) return;
+            var timelineRect = timelineEl.getBoundingClientRect();
+            var firstRect = firstIcon.getBoundingClientRect();
+            var lastRect = lastIcon.getBoundingClientRect();
+            var topOffset = (firstRect.top + firstRect.height / 2) - timelineRect.top;
+            var bottomOffset = timelineRect.bottom - (lastRect.top + lastRect.height / 2);
+            lineEl.style.top = topOffset + 'px';
+            lineEl.style.bottom = Math.max(bottomOffset, 0) + 'px';
+
+            var lineRect = lineEl.getBoundingClientRect();
+            lineHeightPx = lineRect.height;
+            iconOffsets = [];
+            serviceRows.forEach(function (row) {
+              var icon = row.querySelector('.service-icon');
+              var iconRect = icon.getBoundingClientRect();
+              iconOffsets.push((iconRect.top + iconRect.height / 2) - lineRect.top);
+            });
+          };
+
+          var update = function () {
+            ticking = false;
+            var lineRect = lineEl.getBoundingClientRect();
+            var refY = window.innerHeight * 0.5;
+            var filledPx = Math.max(0, Math.min(refY - lineRect.top, lineHeightPx));
+            var progress = lineHeightPx ? filledPx / lineHeightPx : 0;
+            fillEl.style.height = (progress * 100) + '%';
+            serviceRows.forEach(function (row, i) {
+              if (filledPx >= iconOffsets[i]) { row.classList.add('in-view'); }
+              else { row.classList.remove('in-view'); }
+            });
+          };
+
+          scrollHandler = function () {
+            if (!ticking) { ticking = true; requestAnimationFrame(update); }
+          };
+          resizeHandler = function () { measure(); update(); };
+
+          measure();
+          update();
+          window.addEventListener('scroll', scrollHandler, { passive: true });
+          window.addEventListener('resize', resizeHandler);
+          window.addEventListener('load', resizeHandler);
+        };
+
+        var applyTimelineMode = function () {
+          if (desktopQuery.matches) { startDesktopLine(); }
+          else { startMobileReveal(); }
+        };
+
+        applyTimelineMode();
+        if (desktopQuery.addEventListener) {
+          desktopQuery.addEventListener('change', applyTimelineMode);
+        } else if (desktopQuery.addListener) {
+          desktopQuery.addListener(applyTimelineMode);
+        }
       }
     }
 
