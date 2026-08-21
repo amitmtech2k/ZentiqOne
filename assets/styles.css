@@ -57,15 +57,19 @@ p { margin-top: 0; }
 .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 /* Header / Nav */
-.site-header { background: var(--color-navy); position: sticky; top: 0; z-index: 100; }
+.site-header { background: var(--color-navy); position: sticky; top: 0; z-index: 100; box-shadow: 0 0 0 rgba(0,0,0,0); transition: box-shadow var(--duration-base) var(--ease); }
+.site-header.is-scrolled { box-shadow: 0 8px 24px rgba(0,0,0,0.28); }
 .navbar { max-width: var(--max-width); margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: relative; }
 .navbar .logo { color: #fff; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
 .navbar .logo:hover { text-decoration: none; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
 .nav-toggle span { width: 24px; height: 2px; background: #fff; display: block; }
 .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-.nav-links a { color: #dce4f5; font-weight: 500; transition: color var(--duration-fast) var(--ease); }
+.nav-links a { position: relative; color: #dce4f5; font-weight: 500; transition: color var(--duration-fast) var(--ease); }
 .nav-links a:hover { color: #fff; text-decoration: none; }
+.nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--color-blue); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform var(--duration-base) var(--ease); }
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+.nav-links a.btn::after { display: none; }
 .nav-cta { background: var(--color-blue); color: #fff !important; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 700; }
 .nav-cta:hover { background: #E0700A; }
 
@@ -141,6 +145,8 @@ section { padding: 64px 0; }
 .card ul { margin: 0.85rem 0; padding-left: 1.1rem; color: var(--color-text-muted); }
 .card li { margin-bottom: 0.35rem; }
 .card .learn-more { font-weight: 700; }
+.learn-more { display: inline-block; transition: transform var(--duration-fast) var(--ease); }
+.learn-more:hover { transform: translateX(4px); }
 .badge-num { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: var(--color-blue-light); color: var(--color-blue); font-weight: 800; margin-bottom: 0.9rem; flex-shrink: 0; transition: background var(--duration-fast) var(--ease), color var(--duration-fast) var(--ease); }
 
 /* Repeated grid cards (reason/feature/service lists): boxed tile with an
@@ -195,8 +201,12 @@ section { padding: 64px 0; }
 }
 
 /* FAQ */
-.faq details { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.4rem; margin-bottom: 0.9rem; }
-.faq summary { font-weight: 700; color: var(--color-navy); cursor: pointer; }
+.faq details { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1rem 1.4rem; margin-bottom: 0.9rem; transition: box-shadow var(--duration-base) var(--ease); }
+.faq details[open] { box-shadow: var(--shadow); }
+.faq summary { font-weight: 700; color: var(--color-navy); cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; flex-shrink: 0; width: 10px; height: 10px; border-right: 2px solid var(--color-blue); border-bottom: 2px solid var(--color-blue); transform: rotate(45deg); transition: transform var(--duration-base) var(--ease); }
+.faq details[open] summary::after { transform: rotate(-135deg); }
 .faq details p { margin: 0.75rem 0 0.2rem; color: var(--color-text-muted); }
 
 /* Checklist */
@@ -221,7 +231,8 @@ section { padding: 64px 0; }
 /* Form */
 .form-grid { display: grid; gap: 1.1rem; max-width: 640px; }
 label { font-weight: 700; display: block; margin-bottom: 0.4rem; color: var(--color-navy); }
-input, textarea { width: 100%; padding: 0.75rem 0.9rem; border: 1px solid var(--color-border); border-radius: 8px; font-family: inherit; font-size: 1rem; }
+input, textarea, select { width: 100%; padding: 0.75rem 0.9rem; border: 1px solid var(--color-border); border-radius: 8px; font-family: inherit; font-size: 1rem; transition: border-color var(--duration-fast) var(--ease), box-shadow var(--duration-fast) var(--ease); }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 3px var(--color-blue-light); }
 textarea { resize: vertical; }
 
 /* Footer */
@@ -295,7 +306,7 @@ textarea { resize: vertical; }
 /* =========================================================
    Scroll-reveal animation
    ========================================================= */
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
 .hero .reveal:nth-of-type(1) { transition-delay: 0s; }
 .hero .reveal:nth-of-type(2) { transition-delay: 0.08s; }
@@ -303,6 +314,12 @@ textarea { resize: vertical; }
 .hero .reveal:nth-of-type(4) { transition-delay: 0.24s; }
 .hero .reveal:nth-of-type(5) { transition-delay: 0.32s; }
 .hero .reveal:nth-of-type(6) { transition-delay: 0.4s; }
+
+/* Cascading stagger for cards revealed inside a grid, so items appear in
+   sequence left-to-right/row-by-row instead of all at once. */
+.grid > .reveal:nth-child(3n+1) { transition-delay: 0s; }
+.grid > .reveal:nth-child(3n+2) { transition-delay: 0.1s; }
+.grid > .reveal:nth-child(3n+3) { transition-delay: 0.2s; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
