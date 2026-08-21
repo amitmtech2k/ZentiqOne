@@ -164,6 +164,16 @@
       }
     }
 
+    var islandPanels = document.querySelectorAll('.island-panel');
+    islandPanels.forEach(function (panel) {
+      var trigger = panel.querySelector('.island-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', function () {
+        var isOpen = panel.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+
     var faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(function (item) {
       var trigger = item.querySelector('.faq-trigger');
