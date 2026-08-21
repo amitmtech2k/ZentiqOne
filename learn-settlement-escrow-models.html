@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZentiqOne | Banking, Payments & FinTech Engineering Platform and Digital Transformation Suite">
 <meta name="twitter:description" content="How settlement, escrow accounts, and reconciliation work in digital payments, and the general difference between nodal and escrow accounts in India's ecosystem.">
-<link rel="stylesheet" href="assets/styles.css?v=2.1">
+<link rel="stylesheet" href="assets/styles.css?v=2.2">
 <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
 <script type="application/ld+json">
 {
@@ -243,30 +243,72 @@
     <div class="container">
       <div class="section-head left"><h2>Frequently Asked Questions</h2></div>
       <div class="faq">
-        <details>
-          <summary>What does T+1 settlement mean?</summary>
-          <p>T+1 means funds from a transaction are settled to the merchant's account one business day after the transaction date (T). It's a common batch settlement cycle, though exact timing varies by acquirer, aggregator, and payment method.</p>
-        </details>
-        <details>
-          <summary>Why can't merchants just get paid instantly for every transaction?</summary>
-          <p>Some platforms do offer instant or near-real-time settlement, often for an additional cost. Batch cycles exist partly because grouping transactions is operationally simpler, and because a short delay allows time for verification and risk checks before funds are irreversibly disbursed.</p>
-        </details>
-        <details>
-          <summary>Is an escrow account the same as a merchant's own bank account?</summary>
-          <p>No. An escrow account is generally a separate, ring-fenced account used by an aggregator or marketplace to hold customer funds in transit; the merchant's own bank account is where their settled proceeds ultimately land after the escrow conditions are met.</p>
-        </details>
-        <details>
-          <summary>How do you open an escrow account in India?</summary>
-          <p>The general process involves defining the transaction, identifying an appropriate bank, trustee or authorised institution, completing KYC and due diligence, preparing and executing the escrow agreement, and then establishing and funding the arrangement. Exact requirements vary by transaction and regulatory framework.</p>
-        </details>
-        <details>
-          <summary>What documents are required for an escrow account?</summary>
-          <p>Depending on the transaction, documents may include KYC information, incorporation and constitutional documents, PAN and tax information, authorised signatory details, board resolutions, the underlying transaction agreement, and the escrow agreement and instructions.</p>
-        </details>
-        <details>
-          <summary>Can escrow funds be partially released?</summary>
-          <p>Partial or milestone-based release is possible where the escrow agreement specifically provides for it and the applicable conditions have been satisfied.</p>
-        </details>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>What does T+1 settlement mean?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>T+1 means funds from a transaction are settled to the merchant's account one business day after the transaction date (T). It's a common batch settlement cycle, though exact timing varies by acquirer, aggregator, and payment method.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Why can't merchants just get paid instantly for every transaction?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Some platforms do offer instant or near-real-time settlement, often for an additional cost. Batch cycles exist partly because grouping transactions is operationally simpler, and because a short delay allows time for verification and risk checks before funds are irreversibly disbursed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Is an escrow account the same as a merchant's own bank account?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>No. An escrow account is generally a separate, ring-fenced account used by an aggregator or marketplace to hold customer funds in transit; the merchant's own bank account is where their settled proceeds ultimately land after the escrow conditions are met.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>How do you open an escrow account in India?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>The general process involves defining the transaction, identifying an appropriate bank, trustee or authorised institution, completing KYC and due diligence, preparing and executing the escrow agreement, and then establishing and funding the arrangement. Exact requirements vary by transaction and regulatory framework.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>What documents are required for an escrow account?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Depending on the transaction, documents may include KYC information, incorporation and constitutional documents, PAN and tax information, authorised signatory details, board resolutions, the underlying transaction agreement, and the escrow agreement and instructions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Can escrow funds be partially released?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Partial or milestone-based release is possible where the escrow agreement specifically provides for it and the applicable conditions have been satisfied.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -335,6 +377,6 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
-  <script src="assets/script.js?v=2.1"></script>
+  <script src="assets/script.js?v=2.2"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZentiqOne | Banking, Payments & FinTech Engineering Platform and Digital Transformation Suite">
 <meta name="twitter:description" content="What payment orchestration is, why merchants and Payment Aggregators adopt it, and how smart routing across gateways improves success rates and resilience.">
-<link rel="stylesheet" href="assets/styles.css?v=2.1">
+<link rel="stylesheet" href="assets/styles.css?v=2.2">
 <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
 <script type="application/ld+json">
 {
@@ -185,18 +185,39 @@
     <div class="container">
       <div class="section-head left"><h2>Frequently Asked Questions</h2></div>
       <div class="faq">
-        <details>
-          <summary>Does payment orchestration replace the need for a payment gateway?</summary>
-          <p>No. Orchestration sits above payment gateways and acquiring banks, not instead of them. A business using orchestration typically still has relationships with multiple underlying gateways or banks; the orchestration layer manages and routes across them rather than replacing any of them.</p>
-        </details>
-        <details>
-          <summary>Is payment orchestration only useful for large enterprises?</summary>
-          <p>It is most commonly adopted by high-volume merchants, marketplaces, and Payment Aggregators, since the benefits of smarter routing and retry logic scale with transaction volume and the number of provider relationships involved. Smaller merchants with modest, steady volume through one reliable gateway often do not need this additional layer.</p>
-        </details>
-        <details>
-          <summary>How does orchestration actually improve transaction success rates?</summary>
-          <p>By routing a transaction to a different, healthy provider when the default one is failing or underperforming, and by automatically retrying certain failed transactions through an alternate connected provider rather than simply returning a failure to the customer. Neither of these is possible when a business is integrated with only a single provider.</p>
-        </details>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Does payment orchestration replace the need for a payment gateway?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>No. Orchestration sits above payment gateways and acquiring banks, not instead of them. A business using orchestration typically still has relationships with multiple underlying gateways or banks; the orchestration layer manages and routes across them rather than replacing any of them.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Is payment orchestration only useful for large enterprises?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>It is most commonly adopted by high-volume merchants, marketplaces, and Payment Aggregators, since the benefits of smarter routing and retry logic scale with transaction volume and the number of provider relationships involved. Smaller merchants with modest, steady volume through one reliable gateway often do not need this additional layer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>How does orchestration actually improve transaction success rates?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>By routing a transaction to a different, healthy provider when the default one is failing or underperforming, and by automatically retrying certain failed transactions through an alternate connected provider rather than simply returning a failure to the customer. Neither of these is possible when a business is integrated with only a single provider.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -265,6 +286,6 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
-  <script src="assets/script.js?v=2.1"></script>
+  <script src="assets/script.js?v=2.2"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZentiqOne | Banking, Payments & FinTech Engineering Platform and Digital Transformation Suite">
 <meta name="twitter:description" content="How UPI actually works: NPCI's role as the switch, PSPs, VPAs, and the step-by-step path a payment takes between apps, banks, and NPCI, in real time.">
-<link rel="stylesheet" href="assets/styles.css?v=2.1">
+<link rel="stylesheet" href="assets/styles.css?v=2.2">
 <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
 <script type="application/ld+json">
 {
@@ -197,18 +197,39 @@
     <div class="container">
       <div class="section-head left"><h2>Frequently Asked Questions</h2></div>
       <div class="faq">
-        <details>
-          <summary>What is a VPA?</summary>
-          <p>A VPA (Virtual Payment Address), often called a UPI ID, is a portable identifier - for example name@bank - that maps to a specific bank account. It lets people send and receive money without ever sharing their actual account number or IFSC code.</p>
-        </details>
-        <details>
-          <summary>Is UPI only peer-to-peer?</summary>
-          <p>No. UPI supports person-to-person (P2P) transfers, but it is used just as heavily for person-to-merchant (P2M) payments - in-store QR codes, e-commerce checkout, bill payments, and recurring payments via UPI AutoPay all run on the same underlying rail.</p>
-        </details>
-        <details>
-          <summary>How does a business start accepting UPI payments?</summary>
-          <p>Most businesses accept UPI through a payment gateway or aggregator that already has the banking and NPCI-facing integrations in place, rather than integrating directly with NPCI. The business typically only needs to integrate with that gateway or aggregator's API and complete the relevant merchant onboarding and KYC.</p>
-        </details>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>What is a VPA?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>A VPA (Virtual Payment Address), often called a UPI ID, is a portable identifier - for example name@bank - that maps to a specific bank account. It lets people send and receive money without ever sharing their actual account number or IFSC code.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Is UPI only peer-to-peer?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>No. UPI supports person-to-person (P2P) transfers, but it is used just as heavily for person-to-merchant (P2M) payments - in-store QR codes, e-commerce checkout, bill payments, and recurring payments via UPI AutoPay all run on the same underlying rail.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>How does a business start accepting UPI payments?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Most businesses accept UPI through a payment gateway or aggregator that already has the banking and NPCI-facing integrations in place, rather than integrating directly with NPCI. The business typically only needs to integrate with that gateway or aggregator's API and complete the relevant merchant onboarding and KYC.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -277,6 +298,6 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
-  <script src="assets/script.js?v=2.1"></script>
+  <script src="assets/script.js?v=2.2"></script>
 </body>
 </html>

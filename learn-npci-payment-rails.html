@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZentiqOne | Banking, Payments & FinTech Engineering Platform and Digital Transformation Suite">
 <meta name="twitter:description" content="A rail-by-rail guide to NPCI's payment infrastructure - UPI, IMPS, NACH, FASTag, AEPS, BBPS, and RuPay - and why they form one coherent payment ecosystem.">
-<link rel="stylesheet" href="assets/styles.css?v=2.1">
+<link rel="stylesheet" href="assets/styles.css?v=2.2">
 <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
 <script type="application/ld+json">
 {
@@ -191,18 +191,39 @@
     <div class="container">
       <div class="section-head left"><h2>Frequently Asked Questions</h2></div>
       <div class="faq">
-        <details>
-          <summary>Is NPCI a government body?</summary>
-          <p>NPCI is not a government department. It is a non-profit umbrella organization for retail payments in India, set up under the initiative of the Reserve Bank of India (RBI) and the Indian Banks' Association (IBA), with banks and other institutions as its shareholders and members.</p>
-        </details>
-        <details>
-          <summary>What's the difference between IMPS and UPI?</summary>
-          <p>Both move money between bank accounts in real time. IMPS predates UPI and typically requires an account number and IFSC code (or an MMID and mobile number), while UPI adds a simpler VPA-based addressing layer and a common app experience on top of a similar underlying transfer capability.</p>
-        </details>
-        <details>
-          <summary>Do businesses need to integrate with each NPCI rail separately?</summary>
-          <p>Not necessarily. Many banks, payment aggregators, and technology partners expose several NPCI rails through a single API or platform, so a business can add UPI, NACH mandates, or BBPS bill payments without building a separate direct connection to NPCI for each one.</p>
-        </details>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Is NPCI a government body?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>NPCI is not a government department. It is a non-profit umbrella organization for retail payments in India, set up under the initiative of the Reserve Bank of India (RBI) and the Indian Banks' Association (IBA), with banks and other institutions as its shareholders and members.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>What's the difference between IMPS and UPI?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Both move money between bank accounts in real time. IMPS predates UPI and typically requires an account number and IFSC code (or an MMID and mobile number), while UPI adds a simpler VPA-based addressing layer and a common app experience on top of a similar underlying transfer capability.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Do businesses need to integrate with each NPCI rail separately?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Not necessarily. Many banks, payment aggregators, and technology partners expose several NPCI rails through a single API or platform, so a business can add UPI, NACH mandates, or BBPS bill payments without building a separate direct connection to NPCI for each one.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -271,6 +292,6 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
-  <script src="assets/script.js?v=2.1"></script>
+  <script src="assets/script.js?v=2.2"></script>
 </body>
 </html>

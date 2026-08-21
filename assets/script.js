@@ -164,6 +164,16 @@
       }
     }
 
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+      var trigger = item.querySelector('.faq-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+
     var dropdown = document.querySelector('.nav-dropdown');
     var dropdownToggle = dropdown ? dropdown.querySelector('.nav-dropdown-toggle') : null;
     if (dropdown && dropdownToggle) {

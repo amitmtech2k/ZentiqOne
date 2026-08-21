@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZentiqOne | Banking, Payments & FinTech Engineering Platform and Digital Transformation Suite">
 <meta name="twitter:description" content="What a Core Banking System does, how API banking exposes it safely, and why this shift matters for digital banking, embedded finance, and fintech integrations.">
-<link rel="stylesheet" href="assets/styles.css?v=2.1">
+<link rel="stylesheet" href="assets/styles.css?v=2.2">
 <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
 <script type="application/ld+json">
 {
@@ -185,18 +185,39 @@
     <div class="container">
       <div class="section-head left"><h2>Frequently Asked Questions</h2></div>
       <div class="faq">
-        <details>
-          <summary>Does API banking mean replacing the core banking system?</summary>
-          <p>Not usually. API banking typically means exposing existing core banking functions through a new interface layer, not replacing the underlying core system. Full core banking replacement is a much larger, separate undertaking that many banks approach far more cautiously than adding an API layer.</p>
-        </details>
-        <details>
-          <summary>Is API banking secure enough for sensitive functions like fund transfers?</summary>
-          <p>It can be, when designed with proper authentication, authorization, encryption, and monitoring. Security depends heavily on how the API layer is architected and governed, not on whether an API exists at all, which is why access control, rate limiting, and careful testing are such central parts of doing API banking responsibly.</p>
-        </details>
-        <details>
-          <summary>What is a sandbox environment, and why does it matter for API banking?</summary>
-          <p>A sandbox is a realistic but isolated test environment where developers and fintech partners can build and test their integration against a bank's APIs without touching live customer data or production systems. It matters because it lets integration work happen safely and iteratively, catching problems before any code goes near a real account or transaction.</p>
-        </details>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Does API banking mean replacing the core banking system?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Not usually. API banking typically means exposing existing core banking functions through a new interface layer, not replacing the underlying core system. Full core banking replacement is a much larger, separate undertaking that many banks approach far more cautiously than adding an API layer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Is API banking secure enough for sensitive functions like fund transfers?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>It can be, when designed with proper authentication, authorization, encryption, and monitoring. Security depends heavily on how the API layer is architected and governed, not on whether an API exists at all, which is why access control, rate limiting, and careful testing are such central parts of doing API banking responsibly.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>What is a sandbox environment, and why does it matter for API banking?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>A sandbox is a realistic but isolated test environment where developers and fintech partners can build and test their integration against a bank's APIs without touching live customer data or production systems. It matters because it lets integration work happen safely and iteratively, catching problems before any code goes near a real account or transaction.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -265,6 +286,6 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
-  <script src="assets/script.js?v=2.1"></script>
+  <script src="assets/script.js?v=2.2"></script>
 </body>
 </html>

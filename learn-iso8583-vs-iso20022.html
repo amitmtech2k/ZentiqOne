@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ZentiqOne | Banking, Payments & FinTech Engineering Platform and Digital Transformation Suite">
 <meta name="twitter:description" content="A plain-English comparison of ISO 8583 and ISO 20022, the two messaging standards behind card, ATM, POS, and bank payments, and why both still matter today.">
-<link rel="stylesheet" href="assets/styles.css?v=2.1">
+<link rel="stylesheet" href="assets/styles.css?v=2.2">
 <link rel="icon" href="assets/favicon.ico?v=2" type="image/x-icon">
 <script type="application/ld+json">
 {
@@ -224,18 +224,39 @@
     <div class="container">
       <div class="section-head left"><h2>Frequently Asked Questions</h2></div>
       <div class="faq">
-        <details>
-          <summary>Is ISO 8583 being replaced by ISO 20022?</summary>
-          <p>Not wholesale, and not on a fixed timeline. ISO 20022 is being adopted for many real-time and cross-border payment systems, but ISO 8583 remains deeply embedded in card, ATM, and POS processing worldwide. Most institutions are building capability to support both rather than planning a full replacement.</p>
-        </details>
-        <details>
-          <summary>Can ISO 8583 and ISO 20022 messages be translated into one another?</summary>
-          <p>Yes, translation between the two is a common and necessary piece of payments infrastructure, since many transactions still need to move between systems that speak different standards. Because ISO 20022 carries richer data than ISO 8583, translation typically involves mapping a smaller set of ISO 8583 fields into a larger ISO 20022 structure, and carefully handling any data that has no direct equivalent in the older format.</p>
-        </details>
-        <details>
-          <summary>Does ISO 20022 adoption affect merchants directly?</summary>
-          <p>Usually not directly. These standards operate at the messaging layer between banks, networks, and processors, well below what a typical merchant integration deals with. Merchants and their payment providers generally continue working with the same APIs and checkout flows regardless of which messaging standard is used underneath.</p>
-        </details>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Is ISO 8583 being replaced by ISO 20022?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Not wholesale, and not on a fixed timeline. ISO 20022 is being adopted for many real-time and cross-border payment systems, but ISO 8583 remains deeply embedded in card, ATM, and POS processing worldwide. Most institutions are building capability to support both rather than planning a full replacement.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Can ISO 8583 and ISO 20022 messages be translated into one another?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Yes, translation between the two is a common and necessary piece of payments infrastructure, since many transactions still need to move between systems that speak different standards. Because ISO 20022 carries richer data than ISO 8583, translation typically involves mapping a smaller set of ISO 8583 fields into a larger ISO 20022 structure, and carefully handling any data that has no direct equivalent in the older format.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Does ISO 20022 adoption affect merchants directly?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-panel-inner">
+              <p>Usually not directly. These standards operate at the messaging layer between banks, networks, and processors, well below what a typical merchant integration deals with. Merchants and their payment providers generally continue working with the same APIs and checkout flows regardless of which messaging standard is used underneath.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -304,6 +325,6 @@
       <p>&copy; 2026 ZentiqOne. All rights reserved.</p><p>powered by <a href="https://razorsharpfocus.com/" target="_blank" rel="noopener">RazorSharpFocus</a>.</p>
     </div>
   </footer>
-  <script src="assets/script.js?v=2.1"></script>
+  <script src="assets/script.js?v=2.2"></script>
 </body>
 </html>
