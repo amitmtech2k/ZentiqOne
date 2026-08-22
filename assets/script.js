@@ -227,7 +227,7 @@
     }
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      var revealEls = document.querySelectorAll('.reveal');
+      var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
       if ('IntersectionObserver' in window && revealEls.length) {
         var revealObserver = new IntersectionObserver(function (entries, observer) {
           entries.forEach(function (entry) {
@@ -242,7 +242,7 @@
         revealEls.forEach(function (el) { el.classList.add('is-visible'); });
       }
     } else {
-      document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) { el.classList.add('is-visible'); });
     }
   });
 })();

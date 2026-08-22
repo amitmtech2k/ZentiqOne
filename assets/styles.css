@@ -415,8 +415,21 @@ textarea { resize: vertical; }
 .grid > .reveal:nth-child(3n+1) { transition-delay: 0s; }
 .grid > .reveal:nth-child(3n+2) { transition-delay: 0.1s; }
 .grid > .reveal:nth-child(3n+3) { transition-delay: 0.2s; }
+/* Directional variants: section headings/intros converge from opposite
+   sides as they scroll into view (h2 from the left, its intro line from
+   the right), instead of everything just fading up the same way. */
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
+.reveal-left.is-visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
+.reveal-right.is-visible { opacity: 1; transform: none; }
+@media (max-width: 600px) {
+  /* Narrow viewports: keep the motion vertical so nothing skims close to
+     the screen edge or reads as jumpy on a small, already-tight layout. */
+  .reveal-left, .reveal-right { transform: translateY(20px); }
+}
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -667,14 +680,17 @@ textarea { resize: vertical; }
 }
 .service-icon svg { width: 24px; height: 24px; }
 .service-row.in-view .service-icon { border-color: var(--color-blue); background: linear-gradient(145deg, #FF9A33, #E86D00); color: #fff; box-shadow: 0 4px 14px rgba(253, 121, 2, 0.35); transform: scale(1.08); }
-.service-content { grid-column: 3; opacity: 0; transform: translateY(24px); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
+/* Content alternates sides with the layout: odd rows sit on the right and
+   slide in from the right, even rows sit on the left and slide in from the
+   left, so the text visibly converges toward the line as you scroll. */
+.service-content { grid-column: 3; opacity: 0; transform: translateX(40px); transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease); }
+.service-row:nth-child(even) .service-content { grid-column: 1; transform: translateX(-40px); }
 .service-row.in-view .service-content { opacity: 1; transform: none; }
-.service-row:nth-child(even) .service-content { grid-column: 1; }
 .service-content h3 { margin-top: 0; }
 .service-content ul { margin: 0.75rem 0 0; padding-left: 1.2rem; color: var(--color-text-muted); }
 .service-content ul li { margin-bottom: 0.3rem; }
 @media (prefers-reduced-motion: reduce) {
-  .service-content { opacity: 1; transform: none; }
+  .service-content, .service-row:nth-child(even) .service-content { opacity: 1; transform: none; }
 }
 @media (max-width: 900px) {
   .service-timeline-line { display: none; }
