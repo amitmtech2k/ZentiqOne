@@ -397,6 +397,10 @@ textarea { resize: vertical; }
 .trust-clarifier { background: var(--glass-bg); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); border-radius: var(--glass-radius); padding: 1.5rem 1.75rem; margin-top: 2rem; }
 .trust-clarifier p { margin: 0; color: var(--color-text); }
 .trust-clarifier strong { color: var(--color-navy); }
+.trust-clarifier ul { margin: 0.85rem 0 0; padding-left: 1.2rem; color: var(--color-text); }
+.trust-clarifier li { margin-bottom: 0.4rem; }
+.trust-clarifier li:last-child { margin-bottom: 0; }
+.section-disclaimer { margin: 1.5rem auto 0; max-width: 760px; font-size: 0.8rem; line-height: 1.5; color: var(--color-text-muted); text-align: center; }
 
 /* =========================================================
    Scroll-reveal animation
