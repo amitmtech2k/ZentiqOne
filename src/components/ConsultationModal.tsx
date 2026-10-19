@@ -97,13 +97,34 @@ export default function ConsultationModal({ isOpen, onClose, initialServiceId }:
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          company,
+          email,
+          phone,
+          services: [selectedService],
+          notes,
+          timeline,
+          projectStage: volume,
+          landingPageUrl: typeof window !== "undefined" ? window.location.href : "",
+          referrerUrl: typeof document !== "undefined" ? document.referrer : "",
+          submittedAt: new Date().toISOString()
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to dispatch consultation request");
+      }
+
       setIsSubmitted(true);
       confetti({
         particleCount: 80,
@@ -111,7 +132,15 @@ export default function ConsultationModal({ isOpen, onClose, initialServiceId }:
         origin: { y: 0.6 },
         colors: ["#FD7902", "#FFA858", "#10B981", "#0F172A"]
       });
-    }, 600);
+    } catch (err) {
+      console.error("Consultation modal submission error:", err);
+      setErrors((prev) => ({
+        ...prev,
+        form: "Could not send request. Please retry or email zentiqone@gmail.com directly."
+      }));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -353,6 +382,13 @@ export default function ConsultationModal({ isOpen, onClose, initialServiceId }:
                   className="w-full bg-[#FAFBFC] border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:border-[#FD7902] focus:bg-white focus:ring-2 focus:ring-orange-500/10"
                 />
               </div>
+
+              {errors.form && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <span>{errors.form}</span>
+                </div>
+              )}
 
               {/* Submit Button */}
               <div className="pt-2">

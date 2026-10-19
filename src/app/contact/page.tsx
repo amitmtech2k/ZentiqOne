@@ -112,13 +112,34 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          company,
+          email,
+          phone,
+          services: [selectedService],
+          notes,
+          timeline,
+          projectStage: volume,
+          landingPageUrl: typeof window !== "undefined" ? window.location.href : "",
+          referrerUrl: typeof document !== "undefined" ? document.referrer : "",
+          submittedAt: new Date().toISOString()
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send consultation enquiry");
+      }
+
       setIsSubmitted(true);
       confetti({
         particleCount: 80,
@@ -126,7 +147,15 @@ export default function ContactPage() {
         origin: { y: 0.6 },
         colors: ["#FD7902", "#FFA858", "#10B981", "#0F172A"]
       });
-    }, 600);
+    } catch (err) {
+      console.error("Form submission error:", err);
+      setErrors((prev) => ({
+        ...prev,
+        form: "Could not dispatch enquiry email. Please retry or contact zentiqone@gmail.com directly."
+      }));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -374,6 +403,13 @@ export default function ContactPage() {
                 <ShieldCheck className="w-4 h-4 text-[#FD7902] shrink-0" />
                 <span>Enterprise NDA Protected. Your technical specifications and data are held in strict confidence.</span>
               </div>
+
+              {errors.form && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                  <span>{errors.form}</span>
+                </div>
+              )}
 
               {/* Submit Button */}
               <div className="flex items-center justify-end gap-3 pt-2">
