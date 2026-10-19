@@ -151,15 +151,29 @@ export async function POST(req: NextRequest) {
       `
     };
 
+    const isProduction = process.env.NODE_ENV === "production";
     const apiKey = process.env.BREVO_API_KEY;
+
     if (!apiKey) {
-      console.warn("⚠️ BREVO_API_KEY is not set in environment variables. Email logged to console instead of sending live.");
+      if (isProduction) {
+        console.error("CRITICAL: BREVO_API_KEY is not defined in production environment variables.");
+        return NextResponse.json(
+          { 
+            error: "Email delivery service is currently unconfigured. Please email zentiqone@gmail.com directly or call +91-8750908771.",
+            success: false 
+          },
+          { status: 503 }
+        );
+      }
+
+      // ONLY in local development mode without a key:
+      console.warn("⚠️ [DEV ONLY] BREVO_API_KEY is not set. Simulating form submission.");
       console.log("Admin email simulation:", adminEmailPayload.subject);
       console.log("User email simulation:", userEmailPayload.subject);
       return NextResponse.json({
         success: true,
         mock: true,
-        message: "Enquiry recorded (Simulated - set BREVO_API_KEY in .env.local for live dispatch)"
+        message: "Enquiry recorded (Local Dev Simulated)"
       });
     }
 
@@ -174,7 +188,11 @@ export async function POST(req: NextRequest) {
   } catch (error: any) {
     console.error("Brevo contact API error:", error);
     return NextResponse.json(
-      { error: error?.message || "Failed to send consultation enquiry" },
+      { 
+        error: "Failed to dispatch consultation email. Please retry or contact zentiqone@gmail.com directly.",
+        details: error?.message || "Internal transmission error",
+        success: false
+      },
       { status: 500 }
     );
   }

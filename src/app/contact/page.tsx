@@ -136,8 +136,10 @@ export default function ContactPage() {
         })
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send consultation enquiry");
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Failed to send consultation enquiry");
       }
 
       setIsSubmitted(true);
@@ -147,11 +149,11 @@ export default function ContactPage() {
         origin: { y: 0.6 },
         colors: ["#FD7902", "#FFA858", "#10B981", "#0F172A"]
       });
-    } catch (err) {
+    } catch (err: any) {
       console.error("Form submission error:", err);
       setErrors((prev) => ({
         ...prev,
-        form: "Could not dispatch enquiry email. Please retry or contact zentiqone@gmail.com directly."
+        form: err?.message || "Could not dispatch enquiry email. Please retry or contact zentiqone@gmail.com directly."
       }));
     } finally {
       setIsSubmitting(false);

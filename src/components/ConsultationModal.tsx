@@ -121,8 +121,10 @@ export default function ConsultationModal({ isOpen, onClose, initialServiceId }:
         })
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to dispatch consultation request");
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Failed to dispatch consultation request");
       }
 
       setIsSubmitted(true);
@@ -132,11 +134,11 @@ export default function ConsultationModal({ isOpen, onClose, initialServiceId }:
         origin: { y: 0.6 },
         colors: ["#FD7902", "#FFA858", "#10B981", "#0F172A"]
       });
-    } catch (err) {
+    } catch (err: any) {
       console.error("Consultation modal submission error:", err);
       setErrors((prev) => ({
         ...prev,
-        form: "Could not send request. Please retry or email zentiqone@gmail.com directly."
+        form: err?.message || "Could not send request. Please retry or email zentiqone@gmail.com directly."
       }));
     } finally {
       setIsSubmitting(false);
