@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-orange: #FD7902;
+    --color-orange-hover: #E56B00;
+    --color-navy: #0F172A;
+    --color-slate-subtle: #64748B;
+  }
+
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FAFBFC;
+    color: #0F172A;
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: #FFEDD5;
+    color: #9A3412;
+  }
+
+  /* Custom sleek scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F8FAFC;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FD7902;
+  }
+}
+
+/* PayYantra / Cashfree Inspired FinTech Background & Card Classes */
+
+/* Subtle Engineered Grid */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+}
+
+/* Fine Dot Matrix Background */
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+}
+
+/* Soft Multi-Mesh Radial Background */
+.mesh-gradient-hero {
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(253, 121, 2, 0.12), transparent 70%),
+    radial-gradient(circle 400px at 90% 20%, rgba(253, 121, 2, 0.06), transparent 80%),
+    radial-gradient(circle 450px at 10% 30%, rgba(59, 130, 246, 0.05), transparent 80%),
+    linear-gradient(180deg, #FFF9F5 0%, #FFFFFF 50%, #F8FAFC 100%);
+}
+
+.mesh-gradient-section {
+  background: 
+    radial-gradient(circle 500px at 50% 0%, rgba(253, 121, 2, 0.05), transparent 70%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+/* High-Trust Elevated FinTech Card */
+.fintech-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 
+    0 1px 2px 0 rgba(15, 23, 42, 0.03),
+    0 8px 24px -4px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fintech-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(253, 121, 2, 0.4);
+  box-shadow: 
+    0 12px 32px -4px rgba(253, 121, 2, 0.1),
+    0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Interactive Card */
+.fintech-card-interactive {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+
+.fintech-card-interactive:hover {
+  border-color: #FD7902;
+  box-shadow: 0 16px 32px -4px rgba(253, 121, 2, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+  transform: translateY(-2px);
+}
+
+/* Frosted Glass Header */
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Vibrant Orange Gradient Text */
+.text-gradient-orange {
+  background: linear-gradient(135deg, #FF6B00 0%, #FD7902 50%, #EA580C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 26s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle Floating Animations */
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
