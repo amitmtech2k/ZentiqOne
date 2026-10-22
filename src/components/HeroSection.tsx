@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, 
@@ -194,13 +195,13 @@ export default function HeroSection({ onOpenConsultation }: HeroSectionProps) {
                 </a>
               )}
 
-              <a
-                href="#services"
-                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 hover:border-slate-400 transition-all shadow-2xs flex items-center justify-center gap-2"
+              <Link
+                href="/services"
+                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-900 font-bold rounded-xl text-sm border border-slate-300 hover:border-slate-400 transition-all shadow-2xs flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>Explore Services</span>
-                <ChevronDown className="w-4 h-4 text-slate-600" />
-              </a>
+                <ArrowRight className="w-4 h-4 text-[#FD7902] group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </motion.div>
 
             {/* Quick Micro-Trust Signals */}

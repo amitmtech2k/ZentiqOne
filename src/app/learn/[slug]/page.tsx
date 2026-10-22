@@ -44,8 +44,8 @@ export default async function LearnDetailPage({
             <span>Home</span>
           </Link>
           <span>/</span>
-          <Link href="/#learn" className="hover:text-slate-900">
-            Learn Hub
+          <Link href="/resources" className="hover:text-slate-900">
+            Resources
           </Link>
           <span>/</span>
           <span className="text-[#FD7902]">{article.title}</span>

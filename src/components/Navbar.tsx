@@ -74,8 +74,10 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
   const isNavActive = (key: string) => {
     if (pathname === "/contact") return key === "contact";
     if (pathname.startsWith("/services")) return key === "solutions";
-    if (pathname.startsWith("/learn")) return key === "resources";
-    if (pathname === "/") return activeSection === key;
+    if (pathname.startsWith("/why-zentiqone")) return key === "why-zentiqone";
+    if (pathname.startsWith("/partners")) return key === "partners";
+    if (pathname.startsWith("/resources") || pathname.startsWith("/learn")) return key === "resources";
+    if (pathname === "/") return key === "home";
     return false;
   };
 
@@ -150,14 +152,15 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
           >
-            <button 
+            <Link 
+              href="/services"
               className={`${getLinkClasses("solutions")} flex items-center gap-1 cursor-pointer`}
             >
               <span>Solutions &amp; Services</span>
               <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${
                 servicesOpen ? "rotate-180 text-[#FD7902]" : isNavActive("solutions") ? "text-[#FD7902]" : "text-white/60"
               }`} />
-            </button>
+            </Link>
 
             <AnimatePresence>
               {servicesOpen && (
@@ -180,7 +183,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                         {SERVICES_DATA.map((srv) => (
                           <Link
                             key={srv.id}
-                            href="/#services"
+                            href={`/services/${srv.id}`}
                             onClick={() => {
                               if (onSelectService) onSelectService(srv.id);
                               setServicesOpen(false);
@@ -211,7 +214,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                         </div>
                         <div className="flex flex-col gap-1.5 mt-2.5">
                           <Link
-                            href="/#industries"
+                            href="/services#industries"
                             onClick={() => setServicesOpen(false)}
                             className="px-2.5 py-1.5 rounded-lg hover:bg-white/5 text-xs text-white/90 hover:text-[#FD7902] transition-colors font-medium flex items-center justify-between group/ind"
                           >
@@ -219,7 +222,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                             <ArrowRight className="w-3 h-3 text-white/40 group-hover/ind:text-[#FD7902] group-hover/ind:translate-x-0.5 transition-all" />
                           </Link>
                           <Link
-                            href="/#industries"
+                            href="/services#industries"
                             onClick={() => setServicesOpen(false)}
                             className="px-2.5 py-1.5 rounded-lg hover:bg-white/5 text-xs text-white/90 hover:text-[#FD7902] transition-colors font-medium flex items-center justify-between group/ind"
                           >
@@ -227,7 +230,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                             <ArrowRight className="w-3 h-3 text-white/40 group-hover/ind:text-[#FD7902] group-hover/ind:translate-x-0.5 transition-all" />
                           </Link>
                           <Link
-                            href="/#industries"
+                            href="/services#industries"
                             onClick={() => setServicesOpen(false)}
                             className="px-2.5 py-1.5 rounded-lg hover:bg-white/5 text-xs text-white/90 hover:text-[#FD7902] transition-colors font-medium flex items-center justify-between group/ind"
                           >
@@ -235,7 +238,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                             <ArrowRight className="w-3 h-3 text-white/40 group-hover/ind:text-[#FD7902] group-hover/ind:translate-x-0.5 transition-all" />
                           </Link>
                           <Link
-                            href="/#industries"
+                            href="/services#industries"
                             onClick={() => setServicesOpen(false)}
                             className="px-2.5 py-1.5 rounded-lg hover:bg-white/5 text-xs text-white/90 hover:text-[#FD7902] transition-colors font-medium flex items-center justify-between group/ind"
                           >
@@ -243,7 +246,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                             <ArrowRight className="w-3 h-3 text-white/40 group-hover/ind:text-[#FD7902] group-hover/ind:translate-x-0.5 transition-all" />
                           </Link>
                           <Link
-                            href="/#industries"
+                            href="/services#industries"
                             onClick={() => setServicesOpen(false)}
                             className="px-2.5 py-1.5 rounded-lg hover:bg-white/5 text-xs text-white/90 hover:text-[#FD7902] transition-colors font-medium flex items-center justify-between group/ind"
                           >
@@ -255,7 +258,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
 
                       <div className="pt-2 border-t border-white/10">
                         <Link
-                          href="/#industries"
+                          href="/services#industries"
                           onClick={() => setServicesOpen(false)}
                           className="text-[11px] font-bold text-[#FD7902] hover:underline flex items-center gap-1"
                         >
@@ -286,7 +289,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
 
           {/* 3. Why ZentiqOne */}
           <Link 
-            href="/#why-zentiqone" 
+            href="/why-zentiqone" 
             className={getLinkClasses("why-zentiqone")}
           >
             Why ZentiqOne
@@ -294,7 +297,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
 
           {/* 4. Partners & Rails */}
           <Link 
-            href="/#partners" 
+            href="/partners" 
             className={getLinkClasses("partners")}
           >
             Partners
@@ -302,7 +305,7 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
 
           {/* 5. Resources (Learn Hub & FAQ) */}
           <Link 
-            href="/#learn" 
+            href="/resources" 
             className={getLinkClasses("resources")}
           >
             Resources
@@ -377,35 +380,35 @@ export default function Navbar({ onOpenConsultation, onSelectService }: NavbarPr
                 Home
               </Link>
               <Link 
-                href="/#services" 
+                href="/services" 
                 onClick={() => setMobileMenuOpen(false)}
                 className={getMobileLinkClasses("solutions")}
               >
                 Solutions &amp; Services
               </Link>
               <Link 
-                href="/#industries" 
+                href="/services#industries" 
                 onClick={() => setMobileMenuOpen(false)}
                 className={getMobileLinkClasses("solutions")}
               >
                 Industries We Serve
               </Link>
               <Link 
-                href="/#why-zentiqone" 
+                href="/why-zentiqone" 
                 onClick={() => setMobileMenuOpen(false)}
                 className={getMobileLinkClasses("why-zentiqone")}
               >
                 Why ZentiqOne
               </Link>
               <Link 
-                href="/#partners" 
+                href="/partners" 
                 onClick={() => setMobileMenuOpen(false)}
                 className={getMobileLinkClasses("partners")}
               >
                 Partners &amp; Rails
               </Link>
               <Link 
-                href="/#learn" 
+                href="/resources" 
                 onClick={() => setMobileMenuOpen(false)}
                 className={getMobileLinkClasses("resources")}
               >

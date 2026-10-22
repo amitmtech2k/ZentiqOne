@@ -5,13 +5,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import StatsBar from "@/components/StatsBar";
 import BankRailMarquee from "@/components/BankRailMarquee";
-import WhyZentiqOne from "@/components/WhyZentiqOne";
-import IndustriesSection from "@/components/IndustriesSection";
-import ServicesSection from "@/components/ServicesSection";
-import SolutionsTechStack from "@/components/SolutionsTechStack";
-import LearnHubSection from "@/components/LearnHubSection";
-import PartnersSection from "@/components/PartnersSection";
-import FaqSection from "@/components/FaqSection";
 import ConsultationModal from "@/components/ConsultationModal";
 import Footer from "@/components/Footer";
 
@@ -62,31 +55,6 @@ export default function Home() {
 
       {/* Bank & Network Rail Marquee */}
       <BankRailMarquee />
-
-      {/* 2. Solutions & Services (Specialized Offerings & Industry Verticals) */}
-      <ServicesSection 
-        onOpenConsultation={() => handleOpenConsultation(selectedServiceId)}
-        selectedServiceId={selectedServiceId}
-      />
-
-      <IndustriesSection 
-        onOpenConsultation={() => handleOpenConsultation()} 
-      />
-
-      {/* 3. Why ZentiqOne (Pillars, Regulatory Clarity & Turnkey Delivery Lifecycle together) */}
-      <WhyZentiqOne onOpenConsultation={() => handleOpenConsultation()} />
-
-      <SolutionsTechStack onOpenConsultation={() => handleOpenConsultation()} />
-
-      {/* 4. Payment Service Partners */}
-      <PartnersSection 
-        onOpenConsultation={() => handleOpenConsultation()} 
-      />
-
-      {/* 5. Resources (Knowledge Hub & FAQs) */}
-      <LearnHubSection />
-
-      <FaqSection />
 
       {/* Footer & Ready to Build CTA Band */}
       <Footer 

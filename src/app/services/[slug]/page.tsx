@@ -44,7 +44,7 @@ export default async function ServiceDetailPage({
             <span>Home</span>
           </Link>
           <span>/</span>
-          <Link href="/#services" className="hover:text-slate-900">
+          <Link href="/services" className="hover:text-slate-900">
             Services
           </Link>
           <span>/</span>
@@ -66,7 +66,7 @@ export default async function ServiceDetailPage({
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
-              href="/#contact"
+              href="/contact"
               className="px-6 py-3 bg-[#FD7902] hover:bg-[#E36A00] text-white font-bold rounded-xl text-sm shadow-xs transition-all flex items-center gap-2"
             >
               <span>Schedule Architecture Review</span>
@@ -140,7 +140,7 @@ export default async function ServiceDetailPage({
             Our engineering leads will review your product specifications and outline an integration roadmap.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             className="mt-5 inline-flex items-center gap-2 px-6 py-3 bg-[#FD7902] hover:bg-[#E36A00] text-white font-bold rounded-xl text-sm shadow-xs transition-all"
           >
             <span>Consult with Engineering Lead</span>

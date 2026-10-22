@@ -138,32 +138,32 @@ export default function Footer({ onOpenConsultation, onSelectService }: FooterPr
             </div>
             <ul className="space-y-2.5 text-xs text-slate-300 font-medium">
               <li>
-                <Link href="/#why-zentiqone" className="hover:text-white transition-colors">
+                <Link href="/why-zentiqone" className="hover:text-white transition-colors">
                   About ZentiqOne
                 </Link>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-white transition-colors">
                   Services Portfolio
                 </Link>
               </li>
               <li>
-                <Link href="/#industries" className="hover:text-white transition-colors">
+                <Link href="/services#industries" className="hover:text-white transition-colors">
                   Industries We Serve
                 </Link>
               </li>
               <li>
-                <Link href="/#partners" className="hover:text-white transition-colors">
+                <Link href="/partners" className="hover:text-white transition-colors">
                   Authorized Partners
                 </Link>
               </li>
               <li>
-                <Link href="/#ecosystem" className="hover:text-white transition-colors">
+                <Link href="/why-zentiqone" className="hover:text-white transition-colors">
                   Turnkey Delivery Lifecycle
                 </Link>
               </li>
               <li>
-                <Link href="/#learn" className="hover:text-white transition-colors">
+                <Link href="/resources" className="hover:text-white transition-colors">
                   Learn Hub Articles
                 </Link>
               </li>
